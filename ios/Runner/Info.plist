@@ -50,10 +50,12 @@
 				</array>
 			</dict>
 		</dict>
+		<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>Your location is used to show your position on the bird box map while you are surveying.</string>
 		<key>NSLocationAlwaysUsageDescription</key>
-		<string>This app needs access to location when in the background.</string>
+		<string>Your location is used to show your position on the bird box map while you are surveying.</string>
 		<key>NSLocationWhenInUseUsageDescription</key>
-		<string>This app needs access to location when open.</string>
+		<string>Your location is used to show your position on the bird box map while you are surveying.</string>
 		<key>UILaunchStoryboardName</key>
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>

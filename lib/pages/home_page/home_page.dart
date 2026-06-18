@@ -49,7 +49,6 @@ class _HomePageState extends State<HomePage> {
         setState(() {});
       },
       child: Scaffold(
-        
         body: PageTemplate(
           title: 'Redland Green Bird Box Survey',
           image: 'assets/robin1.png',

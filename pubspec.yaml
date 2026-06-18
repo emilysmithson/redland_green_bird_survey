@@ -36,6 +36,7 @@ dependencies:
   intl: 0.20.2
   jiffy: 6.4.5
   latlong2: 0.9.1
+  package_info_plus: 10.1.0
   shared_preferences: 2.5.5
   transparent_image: 2.0.1
   url_launcher: 6.3.2

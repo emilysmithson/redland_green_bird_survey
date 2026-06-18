@@ -2,12 +2,15 @@ import 'dart:io';
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Version {
-  static const String currentVersion = '1.0.6+7';
-
   static Future<void> checkVersion(BuildContext context) async {
+    final PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    final String currentVersion =
+        '${packageInfo.version}+${packageInfo.buildNumber}';
+
     final DatabaseReference reference = FirebaseDatabase.instance.ref().child(
       "version",
     );
