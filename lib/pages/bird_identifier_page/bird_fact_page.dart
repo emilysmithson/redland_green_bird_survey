@@ -203,7 +203,7 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                   const Padding(
                                     padding: EdgeInsets.all(8.0),
                                     child: Text(
-                                      'This species might be seen on the green, but is not one of the species that will use a nest box',
+                                      'This species might be seen on the green, but is not one of the species that will use a nest box.',
                                     ),
                                   ),
                                 if (widget.bird!.birdType == BirdType.predator)
@@ -230,7 +230,7 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                         runSpacing: 10,
                                         children: [
                                           const Text(
-                                            'The conservation list puts birds and other UK animals into 3 categories:',
+                                            'The conservation lists put birds and other UK animals into three categories:',
                                           ),
                                           RichText(
                                             text: const TextSpan(
@@ -295,7 +295,7 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                           RichText(
                                             text: const TextSpan(
                                               text:
-                                                  'This is reviewed every five years and the last review showed that  ',
+                                                  'This is reviewed every five years and the last review showed that ',
                                               style: TextStyle(
                                                 color: Colors.black,
                                                 fontWeight: FontWeight.normal,
@@ -303,8 +303,8 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                               children: [
                                                 TextSpan(
                                                   text:
-                                                      '67 species or more than '
-                                                      'a quarter of all UK regularly occuring bird species are now on the red list.',
+                                                      '67 species, or more than '
+                                                      'a quarter of all UK regularly occurring bird species, are now on the red list.',
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold,

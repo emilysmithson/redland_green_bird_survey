@@ -205,7 +205,7 @@ class _RegisterContentState extends State<RegisterContent> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: const InputDecoration.collapsed(
                       fillColor: Colors.white,
-                      hintText: 'eg john_smith@mail.com',
+                      hintText: 'e.g. john_smith@mail.com',
                     ),
                   ),
                 ),
@@ -283,7 +283,7 @@ class _RegisterContentState extends State<RegisterContent> {
                     textCapitalization: TextCapitalization.words,
                     decoration: const InputDecoration.collapsed(
                       fillColor: Colors.white,
-                      hintText: 'eg Johnny S',
+                      hintText: 'e.g. Johnny S',
                     ),
                   ),
                 ),

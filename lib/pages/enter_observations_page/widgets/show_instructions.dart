@@ -49,7 +49,7 @@ void showInstructions(BuildContext context) async {
               ),
               const Text(
                 "Birds nest in the spring and summer, so these months are the best times to record activity."
-                " Some birds, such as wrens, might also use nest boxes as winter night time roosts – you need to be around at dawn or dusk to see any evidence of this! You could also use this app to report winter roosts.",
+                " Some birds, such as wrens, might also use nest boxes as winter night-time roosts – you need to be around at dawn or dusk to see any evidence of this! You could also use this app to report winter roosts.",
               ),
               Text(
                 '\nHow long should I wait at each box?',
@@ -66,7 +66,7 @@ void showInstructions(BuildContext context) async {
                 style: Theme.of(context).textTheme.displayLarge,
               ),
               const Text(
-                "We do monitor the comments but we do not publish them to the public in order to safeguard from anything inappropriate."
+                "We do monitor the comments but we do not publish them to the public in order to safeguard against anything inappropriate."
                 " Rest assured that your comments will be read by the Redland Green Community Group. ",
               ),
               Text(

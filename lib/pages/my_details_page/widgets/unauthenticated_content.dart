@@ -37,7 +37,7 @@ class _UnauthenticatedContentState extends State<UnauthenticatedContent> {
               onPressed: () {
                 widget.controller.content.value = MyDetailsView.login;
               },
-              child: const Text('Login'),
+              child: const Text('Log in'),
             ),
             ElevatedButton(
               onPressed: () {

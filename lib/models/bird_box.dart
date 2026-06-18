@@ -32,14 +32,14 @@ class BirdBox {
     locationDescription:
         'Approaching from St Oswald’s Rd, this oval box is the second box encountered in the woodland running parallel to Coldharbour Rd. It is in a sycamore tree which is about 7 metres above the end of the St Oswald’s Road path.',
     boxState:
-        'A part nest was found in 2021. In 2021 no nest was found so the front was swapped with number 6 to an open front.',
+        'A part nest was found in 2021. In 2022 no nest was found so the front was swapped with number 6 to an open front.',
   );
   static final BirdBox birdBox3 = BirdBox(
     id: 3,
     location: LatLng(51.4754010, -2.6095980),
     boxType: BoxType.seville,
     locationDescription:
-        'Approaching from St Oswald’s Rd, this box is the third box encountered in the woodland running parallel to Coldharbour Rd. It is about high up in the woodland hill 3 metres below the garages, not visible outside the woodland, and about 20 metres towards Cossins Rd from box 2.',
+        'Approaching from St Oswald’s Rd, this box is the third box encountered in the woodland running parallel to Coldharbour Rd. It is high up in the woodland hill 3 metres below the garages, not visible outside the woodland, and about 20 metres towards Cossins Rd from box 2.',
     boxState:
         'No nest was found in 2021 or 2022 so we shall consider moving this box.',
   );
@@ -67,7 +67,7 @@ class BirdBox {
     locationDescription:
         'This box is located high on the trunk of a maple tree, the left of two trees near to the memorial stone to Philippa Harradine, behind the St Oswald’s Road properties.',
     boxState:
-        'No nest was found in 2021 or 2022 so we swapped the front from an open fronted.',
+        'No nest was found in 2021 or 2022 so we swapped the front for an open-fronted one.',
   );
   static final BirdBox birdBox7 = BirdBox(
     id: 7,
@@ -162,7 +162,7 @@ class BirdBox {
     location: LatLng(51.4753710, -2.6096643),
     boxType: BoxType.estrella,
     locationDescription:
-        'Mounted on the west end of the garage wall  in the woodland running parallel to Coldharbour Rd',
+        'Mounted on the west end of the garage wall in the woodland running parallel to Coldharbour Rd',
     boxState: 'This nest was newly installed in 2022',
   );
 

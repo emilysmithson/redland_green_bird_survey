@@ -16,7 +16,7 @@ class WelcomePageTile extends StatelessWidget {
             ),
           ),
           const Text(
-            'In 2020, Redland Green Community Group installed 16 bird boxes in trees around the green.'
+            'In 2020, Redland Green Community Group installed nest boxes in trees around the green. There are now 20 boxes to monitor.'
             '\n\nThis app has been created to track the boxes and their inhabitants.'
             '\n\nTap for more information.',
           ),

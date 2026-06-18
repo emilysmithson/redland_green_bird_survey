@@ -11,7 +11,7 @@ void needToRegister(BuildContext context) async {
         title: const Text("You are not logged in"),
         actions: <Widget>[
           TextButton(
-            child: const Text('Take me to login page'),
+            child: const Text('Take me to the login page'),
             onPressed: () {
               Navigator.pop(context);
               Navigator.pushReplacement(
@@ -22,7 +22,7 @@ void needToRegister(BuildContext context) async {
           ),
         ],
         content: const Text(
-          'In order to enter an observation you must first login',
+          'In order to enter an observation you must first log in',
         ),
       );
     },

@@ -6,7 +6,7 @@ class BoxType {
   BoxType(this.name, this.description, this.image);
   static final BoxType seville = BoxType(
     'Seville',
-    'This 28mm hole nest box is suitable for pied flycatcher, blue tits, coal tits and great tits.',
+    'This 28mm hole nest box is suitable for pied flycatchers, blue tits, coal tits and great tits.',
     'assets/bird_boxes/seville.jpg',
   );
   static final BoxType alicante = BoxType(
@@ -40,7 +40,7 @@ class BoxType {
     'assets/bird_boxes/salamanca32.jpeg',
   );
   static const String generalBirdBoxDescription =
-      'These nestboxes are manufactured from WoodStone which is a mix of '
+      'These nest boxes are manufactured from WoodStone which is a mix of '
       'concrete and FSC certified wood fibres. Unlike a traditional wooden nest box, '
       'these boxes will not rot away or deteriorate and are guaranteed for 10 years. '
       '\n\nThis robust material safeguards against attacks from predators such as woodpeckers, '

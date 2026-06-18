@@ -37,7 +37,7 @@ class _InformationPageState extends State<InformationPage> {
                 const Text(
                   'The beautiful photos on this app are all thanks to local photographer Giorgio Pede.'
                   '\n\nMany of them were taken on Redland Green.'
-                  '\n\nTap here to view all his photos on instagram.',
+                  '\n\nTap here to view all his photos on Instagram.',
                 ),
                 const Icon(Icons.photo_camera_rounded),
               ],
@@ -85,7 +85,7 @@ class _InformationPageState extends State<InformationPage> {
                 String url;
                 if (Platform.isAndroid) {
                   url =
-                      'https://play.google.com/store/apps/details?id=uk.org.rgcg.redland_green_bird_surveyail';
+                      'https://play.google.com/store/apps/details?id=uk.org.rgcg.redland_green_bird_survey';
                 } else {
                   url =
                       'https://apps.apple.com/gb/app/org.uk.rgcg.redlandGreenBirdSurvey/1565525766';
@@ -97,7 +97,7 @@ class _InformationPageState extends State<InformationPage> {
               imageAsset: 'assets/dunnock2.png',
               content: [
                 const Text(
-                  'If you enjoyed this app, please consider giving it a 5 star rating',
+                  'If you enjoyed this app, please consider giving it a 5-star rating',
                 ),
                 const Text('Tap here to be directed to the app store'),
                 const Icon(Icons.star),
@@ -158,7 +158,7 @@ class _InformationPageState extends State<InformationPage> {
               imageAsset: 'assets/pigeon.png',
               content: [
                 const Text(
-                  'We are indebted to Redland and Cotham Amenities Society (rcas.org.uk) who funded the purchase of the nest boxes.',
+                  'We are indebted to Redland and Cotham Amenities Society (rcas.org.uk) which funded the purchase of the nest boxes.',
                 ),
                 const SizedBox(
                   width: double.infinity,

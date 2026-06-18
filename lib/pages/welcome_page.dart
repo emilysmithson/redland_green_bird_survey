@@ -26,7 +26,7 @@ class _WelcomePageState extends State<WelcomePage> {
               style: Theme.of(context).textTheme.displayLarge,
             ),
             const Text(
-              '\nIn 2020, Redland Green Community Group erected 16 nest boxes in trees around the green.'
+              '\nIn 2020, Redland Green Community Group erected nest boxes in trees around the green. There are now 20 boxes to monitor.'
               '\n\nThis app is designed to use community power to help monitor these bird boxes.\n',
             ),
             Container(
@@ -53,7 +53,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       );
                     },
                     child: const Text(
-                      '1. Find a bird Box',
+                      '1. Find a bird box',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
@@ -69,7 +69,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       children: const [
                         Expanded(
                           child: Text(
-                            'Use the map to help you locate one of the 16 boxes around the Green.\n',
+                            'Use the map to help you locate one of the 20 boxes around the Green.\n',
                           ),
                         ),
                         Icon(Icons.navigate_next),
@@ -121,8 +121,8 @@ class _WelcomePageState extends State<WelcomePage> {
             ),
             const SizedBox(height: 12),
             const Text(
-              'There has been a substantial decline in birds (both population numbers and ranges) in the British Isles '
-              'since the end of the second world war, a decline which is still continuing in many species. '
+              'There has been a substantial decline in birds (both population numbers and ranges) in the UK '
+              'since the end of the Second World War, a decline which is still continuing in many species. '
               '\n\nInstalling bird boxes is one way to help cavity-nesting species: nest boxes provide substitutes '
               'for natural nesting sites and can offer protection from predators. '
               'We have chosen nest boxes which have a long life and are resistant to damage by predators.\n\n',

@@ -22,7 +22,7 @@ class QuizQuestion {
     question: "Which of these birds is a Dunnock?",
     images: ['bluetit1.png', 'crow1.png', 'dunnock2.png', 'goldfinch1.png'],
     correctAnswer: 2,
-    answers: ['Blue tit', 'Crow', 'Dunock', 'Goldfinch'],
+    answers: ['Blue tit', 'Crow', 'Dunnock', 'Goldfinch'],
   );
   static final question2 = QuizQuestion(
     question: "Which of these birds is a Jackdaw?",
@@ -31,9 +31,9 @@ class QuizQuestion {
     correctAnswer: 0,
   );
   static final question3 = QuizQuestion(
-    question: "Which of these birds is a Great tit?",
+    question: "Which of these birds is a Great Tit?",
     images: ['jay1.png', 'longtailedtit.png', 'greattit2.png', 'bluetit3.png'],
-    answers: ['Jay', 'Long tailed tit', 'Great tit', 'Blue tit'],
+    answers: ['Jay', 'Long-tailed tit', 'Great Tit', 'Blue Tit'],
     correctAnswer: 2,
   );
   static final question4 = QuizQuestion(
@@ -44,13 +44,13 @@ class QuizQuestion {
       'longtailedtit3.png',
       'kestrel_1.png',
     ],
-    answers: ['Nuthatch', 'Goldfinch', 'Long tailed tit', 'Kestrel'],
+    answers: ['Nuthatch', 'Goldfinch', 'Long-tailed tit', 'Kestrel'],
     correctAnswer: 0,
   );
   static final question5 = QuizQuestion(
-    question: "Which of these birds is a Long Tailed Tit?",
+    question: "Which of these birds is a Long-tailed Tit?",
     images: ['crow1.png', 'pigeon.png', 'songthrush.png', 'longtailedtit.png'],
-    answers: ['Crow', 'Pigeon', 'Songthrush', 'Long tailed tit'],
+    answers: ['Crow', 'Pigeon', 'Song Thrush', 'Long-tailed tit'],
     correctAnswer: 3,
   );
   static final question6 = QuizQuestion(
@@ -78,31 +78,26 @@ class QuizQuestion {
   );
   static final question9 = QuizQuestion(
     question: "Which of these birds is a Magpie?",
-    images: [
-      'sparrowhawk_1.png',
-      'sparrow_1.png',
-      'bluetit4.png',
-      'magpie3.png',
-    ],
-    answers: ['SparrowHawk', 'Sparrow', 'Blue tit', 'Magpie'],
+    images: ['sparrowhawk_1.png', 'sparrow.png', 'bluetit4.png', 'magpie3.png'],
+    answers: ['Sparrowhawk', 'Sparrow', 'Blue Tit', 'Magpie'],
     correctAnswer: 3,
   );
   static final question10 = QuizQuestion(
     question: "Which of these birds is a Blackbird?",
     images: ['jackdaw1.png', 'blackbird1.png', 'crow1.png', 'greattit2.png'],
-    answers: ['Jackdaw', 'Blackbird', 'Crow', 'Great tit'],
+    answers: ['Jackdaw', 'Blackbird', 'Crow', 'Great Tit'],
     correctAnswer: 1,
   );
   static final question11 = QuizQuestion(
     question: "Which of these birds is a Jay?",
     images: ['jay1.png', 'kestrel.png', 'longtailedtit2.png', 'goldfinch4.png'],
-    answers: ['Jay', 'Kestrel', 'Long tailed tit', 'Goldfinch'],
+    answers: ['Jay', 'Kestrel', 'Long-tailed tit', 'Goldfinch'],
     correctAnswer: 0,
   );
   static final question12 = QuizQuestion(
-    question: "Which of these birds is a Coal tit?",
+    question: "Which of these birds is a Coal Tit?",
     images: ['kestrel_1.png', 'jay1.png', 'crow3.png', 'coaltit1.png'],
-    answers: ['Kestrel', 'Jay', 'Crow', 'Coaltit'],
+    answers: ['Kestrel', 'Jay', 'Crow', 'Coal Tit'],
     correctAnswer: 3,
   );
   static final question13 = QuizQuestion(
@@ -119,13 +114,13 @@ class QuizQuestion {
       'bluetit4.png',
       'magpie3.png',
     ],
-    answers: ['Sparrow', 'Sparrowhawk', 'Blue tit', 'Magpie'],
+    answers: ['Sparrow', 'Sparrowhawk', 'Blue Tit', 'Magpie'],
     correctAnswer: 1,
   );
   static final question15 = QuizQuestion(
     question: "Which of these birds is a Song Thrush?",
     images: ['robin1.png', 'wagtail.png', 'songthrush.png', 'wren3.png'],
-    answers: ['Robin', 'Wagtail', 'Songthrush', 'Wren'],
+    answers: ['Robin', 'Wagtail', 'Song Thrush', 'Wren'],
     correctAnswer: 2,
   );
   static final question16 = QuizQuestion(
@@ -143,12 +138,12 @@ class QuizQuestion {
   static final question18 = QuizQuestion(
     question: "Which of these birds is a Great Spotted Woodpecker?",
     images: ['starling.png', 'woodpecker.png', 'wren3.png', 'songthrush_2.png'],
-    answers: ['Starling', 'Great Spotted Woodpecker', 'Wren', 'Songthrush'],
+    answers: ['Starling', 'Great Spotted Woodpecker', 'Wren', 'Song Thrush'],
     correctAnswer: 1,
   );
   static final question19 = QuizQuestion(
     question: "Which of these birds is a House Sparrow?",
-    images: ['sparrow_1.png', 'starling2.png', 'wagtail.png', 'wren2.png'],
+    images: ['sparrow.png', 'starling2.png', 'wagtail.png', 'wren2.png'],
     answers: ['House Sparrow', 'Starling', 'Wagtail', 'Wren'],
     correctAnswer: 0,
   );

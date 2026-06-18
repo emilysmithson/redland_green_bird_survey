@@ -83,8 +83,8 @@ class _QuizFlipCardWidgetState extends State<QuizFlipCardWidget>
                               Flexible(
                                 child: Text(
                                   widget.correct
-                                      ? 'Correct this is a ${widget.answer}'
-                                      : 'Wrong, this is a ${widget.answer}',
+                                      ? 'Correct! This is a ${widget.answer}'
+                                      : 'Wrong! This is a ${widget.answer}',
                                 ),
                               ),
                             ],

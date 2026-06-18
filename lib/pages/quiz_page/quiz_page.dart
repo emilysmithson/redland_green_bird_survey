@@ -126,7 +126,7 @@ class _QuizPageState extends State<QuizPage> {
       const Padding(
         padding: EdgeInsets.all(8.0),
         child: Text(
-          'Try these 20 multiple-choice questions testing you on your bird knowlege.',
+          'Try these 20 multiple-choice questions testing you on your bird knowledge.',
         ),
       ),
       Padding(

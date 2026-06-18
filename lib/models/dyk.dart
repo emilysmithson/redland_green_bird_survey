@@ -20,7 +20,7 @@ class DYK {
     DYK(
       question: 'What birds might I see (or hear) around Redland Green?',
       answer:
-          'Redland Green and the adjacent allotments harbour a wide variety of species. These include tits (coal tit, long-tailed tit, blue tit, great tit), goldfinches, robins, wrens, blackbirds and song thrush, starlings, corvids (carrion crows, jackdaw, magpies and jays), woodpeckers (great spotted and green), nuthatch and wood pigeons. Seasonal visitors include swifts, house martins and chiffchaff (spring and summer) and fieldfare, redwing and blackcaps in the winter (though some blackcaps have become year round residents). You might also hear or see sparrowhawks and tawny owls. \n\nWe owe this considerable variety of species to the varied habitats offered by the Green and the allotments, particularly afforded by the veteran ash and oak trees in both places, which provide nesting sites and food. Bird tables in gardens also support some bird populations, although they could not do so without the habitat needed for nesting and roosting.',
+          'Redland Green and the adjacent allotments harbour a wide variety of species. These include tits (coal tit, long-tailed tit, blue tit, great tit), goldfinches, robins, wrens, blackbirds and song thrushes, starlings, corvids (carrion crows, jackdaws, magpies and jays), woodpeckers (great spotted and green), nuthatch and wood pigeons. Seasonal visitors include swifts, house martins and chiffchaff (spring and summer) and fieldfare, redwing and blackcaps in the winter (though some blackcaps have become year-round residents). You might also hear or see sparrowhawks and tawny owls. \n\nWe owe this considerable variety of species to the varied habitats offered by the Green and the allotments, particularly afforded by the veteran ash and oak trees in both places, which provide nesting sites and food. Bird tables in gardens also support some bird populations, although they could not do so without the habitat needed for nesting and roosting.',
       type: DYKType.general,
       image: 'assets/wagtail.png',
     ),
@@ -34,7 +34,7 @@ class DYK {
     DYK(
       question: 'What legislation protects birds?',
       answer:
-          'The most important legislation affecting birds in the UK is the Wildlife and Countryside Act 1981. This Act protects animals that are resident in, or visit (e.g. in summer or winter migrations) the UK as well as plants and habitats. This means it is an offence to kill, injure or trap any wild bird or take or destroy its eggs. It’s also an offence to: interfere with the nest while it’s being built and used; and to do anything with disturbs the bird while it’s nest building, brooding and caring for its young, and to harm the young. ',
+          'The most important legislation affecting birds in the UK is the Wildlife and Countryside Act 1981. This Act protects animals that are resident in, or visit (e.g. in summer or winter migrations) the UK as well as plants and habitats. This means it is an offence to kill, injure or trap any wild bird or take or destroy its eggs. It’s also an offence to: interfere with the nest while it’s being built and used; and to do anything that disturbs the bird while it’s nest building, brooding and caring for its young, and to harm the young.',
       type: DYKType.general,
       image: 'assets/starling.png',
     ),
@@ -55,14 +55,14 @@ class DYK {
     DYK(
       question: 'What threats do birds face?',
       answer:
-          'In addition to the general threats facing bird species, such as climate change, habitat loss, and effects caused by introduced species such as the grey squirrel, there are many threats to the survival of individual birds. These include bad weather and low food supplies, but predation is a major factor. Most of the birds described in this app, or their eggs, are predated by a wide range of animals, including cats, foxes, grey squirrels, weasels, sparrow hawks, magpies, jays, crows and woodpeckers. All of these species exist in or around the green, except for weasels (no known sightings). It’s easy to see how dangerous life is for birds, and why they must constantly be on the lookout for predators.',
+          'In addition to the general threats facing bird species, such as climate change, habitat loss, and effects caused by introduced species such as the grey squirrel, there are many threats to the survival of individual birds. These include bad weather and low food supplies, but predation is a major factor. Most of the birds described in this app, or their eggs, are preyed upon by a wide range of animals, including cats, foxes, grey squirrels, weasels, sparrowhawks, magpies, jays, crows and woodpeckers. All of these species exist in or around the green, except for weasels (no known sightings). It’s easy to see how dangerous life is for birds, and why they must constantly be on the lookout for predators.',
       type: DYKType.general,
       image: 'assets/starling4.png',
     ),
     DYK(
       question: 'What are the red, amber and green lists?',
       answer:
-          'The red list is one of three lists which categorise the population status of birds (and other animals) in the UK. The lists are reviewed every five years in order to stay up-to-date. The red list includes birds of the greatest conservation concern, with species showing severe (more than 50%) contraction in their breeding populations and breeding ranges over a given period. They need urgent action to reverse these declines. The amber list are birds that have shown moderate (25% - 50%) breeding population and breeding range declines. The green list is of birds that are not currently of conservation concern. The last review showed that 67 UK birds, or more than a quarter of the UK’s regularly occurring bird species, are now on the red list.',
+          'The red, amber and green lists categorise the population status of birds (and other animals) in the UK. The lists are reviewed every five years in order to stay up-to-date. The red list includes birds of the greatest conservation concern, with species showing severe (more than 50%) contraction in their breeding populations and breeding ranges over a given period. They need urgent action to reverse these declines. Birds on the amber list are those that have shown moderate (25%-50%) breeding population and breeding range declines. The green list is of birds that are not currently of conservation concern. The last review showed that 67 UK birds, or more than a quarter of the UK’s regularly occurring bird species, are now on the red list.',
       type: DYKType.general,
       image: 'assets/starling2.png',
     ),
@@ -70,7 +70,7 @@ class DYK {
       question:
           'What sorts of trees are likely to have holes and cavities that birds can nest in?',
       answer:
-          'Holes are found mainly in old trees. This is one of many reasons why old trees are so important to protect, as they provide habitat for a huge range of species in addition to birds. There are many reasons holes develop. Holes may develop as the result of injury caused by forces such as wind or lightening, or attacks by insects, bacteria or fungi. Holes can take a long time to form, and can vary in size, depth, shape, insulation and size of entrance hole, making them suitable for many different animals. Holes can also be created by birds which use them to nest, and sometimes roost in.\n\nFor example, the ancient trees in the green – the ash and the oak – contain many holes and are therefore very significant in the ecology of the green. Many of these holes have been made by great spotted woodpeckers, which create a new nesting hole each year.',
+          'Holes are found mainly in old trees. This is one of many reasons why old trees are so important to protect, as they provide habitat for a huge range of species in addition to birds. There are many reasons holes develop. Holes may develop as the result of injury caused by forces such as wind or lightning, or attacks by insects, bacteria or fungi. Holes can take a long time to form, and can vary in size, depth, shape, insulation and size of entrance hole, making them suitable for many different animals. Holes can also be created by birds which use them to nest, and sometimes roost in.\n\nFor example, the ancient trees in the green – the ash and the oak – contain many holes and are therefore very significant in the ecology of the green. Many of these holes have been made by great spotted woodpeckers, which create a new nesting hole each year.',
       type: DYKType.general,
       image: 'assets/woodpecker.png',
     ),
@@ -111,9 +111,9 @@ class DYK {
       image: 'assets/dunnock1.png',
     ),
     DYK(
-      question: 'Will starlings use the nest boxes in Redland Green? ',
+      question: 'Will starlings use the nest boxes in Redland Green?',
       answer:
-          'Starlings will use nest boxes, and Redland Green Community Group erected one starling box in 2022 as a trial near to the Redland Tennis Club; if used, the group may install more. As starlings are gregarious, new boxes coujld be located in close proximity to the existing box. several boxes may be located within a few metres of each other.  \n\nStarlings prefer nest boxes with large holes of around 45mm and also prefer slightly larger boxes than the boxes used by smaller birds such as tits.',
+          'Starlings will use nest boxes, and Redland Green Community Group erected one starling box in 2022 as a trial near to the Redland Tennis Club; if used, the group may install more. As starlings are gregarious, new boxes could be located in close proximity to the existing box. Several boxes may be located within a few metres of each other.\n\nStarlings prefer nest boxes with large holes of around 45mm and also prefer slightly larger boxes than the boxes used by smaller birds such as tits.',
       type: DYKType.nestBoxes,
       image: 'assets/starling5.png',
     ),
@@ -185,7 +185,7 @@ class DYK {
     DYK(
       question: "What are other examples of old country names for birds?",
       answer:
-          "There are hundreds of old names for birds (as well as other animals and plants) which varied from county to county, or even from one village to another, and which have fallen out of use with the standardisation of nomenclature. Such names were often based on a bird’s appearance, behaviour or song and can be quite vivid. Some examples are ‘sharp saw’ and ‘bee-biter’ (great tit), ‘sheep-stare’ (starling), ‘Mavis’ (song thrush), ‘stumpy toddy’ (wren), ‘devil scritch’ (jay), ‘sweet william’, ‘king harry’ and ‘thistlefinch’ (goldfinch) and ‘bumbarrel, ‘jack-in-a-bottle’ and ‘hedge mumruffin’ (long-tailed tit). ",
+          "There are hundreds of old names for birds (as well as other animals and plants) which varied from county to county, or even from one village to another, and which have fallen out of use with the standardisation of nomenclature. Such names were often based on a bird’s appearance, behaviour or song and can be quite vivid. Some examples are ‘sharp saw’ and ‘bee-biter’ (great tit), ‘sheep-stare’ (starling), ‘Mavis’ (song thrush), ‘stumpy toddy’ (wren), ‘devil scritch’ (jay), ‘sweet william’, ‘king harry’ and ‘thistlefinch’ (goldfinch) and ‘bumbarrel’, ‘jack-in-a-bottle’ and ‘hedge mumruffin’ (long-tailed tit). ",
       type: DYKType.birdNames,
       image: 'assets/goldfinch3.png',
     ),
@@ -199,7 +199,7 @@ class DYK {
     DYK(
       question: "How long do songbirds (passerines) live?",
       answer:
-          "While some birds have extremely long lives (for example, most species of albatross live for over 50 years), many birds, including the passerines (‘songbirds’ or ‘perching birds’ - see the question ‘What is a passerine?’) have quite short lives. Robins, wrens,  oldfinches, long-tailed tits, coal tits, nuthatches, pied flycatchers and pied wagtails live on average for two years. Blackbirds and song thrushes, the house sparrow, and blue and great tits average three years. Starlings live on average for five years. However, sometimes individuals greatly exceed the average lifespan. The oldest known pied flycatcher was over 16 years old and one pied wagtail reached 11. A house sparrow was recorded as over 13 years old. The oldest known robin reached 19, and the oldest known blackbird made it to 20 years old!",
+          "While some birds have extremely long lives (for example, most species of albatross live for over 50 years), many birds, including the passerines (‘songbirds’ or ‘perching birds’ - see the question ‘What is a passerine?’) have quite short lives. Robins, wrens, goldfinches, long-tailed tits, coal tits, nuthatches, pied flycatchers and pied wagtails live on average for two years. Blackbirds and song thrushes, the house sparrow, and blue and great tits average three years. Starlings live on average for five years. However, sometimes individuals greatly exceed the average lifespan. The oldest known pied flycatcher was over 16 years old and one pied wagtail reached 11. A house sparrow was recorded as over 13 years old. The oldest known robin reached 19, and the oldest known blackbird made it to 20 years old!",
       type: DYKType.passerines,
       image: 'assets/wren3.png',
     ),
@@ -214,7 +214,7 @@ class DYK {
     DYK(
       question: "What do goldfinches eat?",
       answer:
-          "Gold finches, with their long beaks, are seed specialists, and prefer the seeds of thistles, teasels, ragwort, dandelion and groundsels. Their scientific name (Carduelis carduelis) derives from the Latin for thistle (Cardus). In recent years, goldfinch have frequented gardens more often, to take advantage of the sunflower or nyger seeds often put in bird feeders. Males tend to have longer beaks than females, and this means that only males can extract seeds from teasels. After hatching, chicks are fed on insects and seeds, but as the chicks grow, the parents reduce proportion of insects in their diet.",
+          "Goldfinches, with their long beaks, are seed specialists, and prefer the seeds of thistles, teasels, ragwort, dandelion and groundsels. Their scientific name (Carduelis carduelis) derives from the Latin for thistle (Cardus). In recent years, goldfinches have frequented gardens more often, to take advantage of the sunflower or nyger seeds often put in bird feeders. Males tend to have longer beaks than females, and this means that only males can extract seeds from teasels. After hatching, chicks are fed on insects and seeds, but as the chicks grow, the parents reduce the proportion of insects in their diet.",
       type: DYKType.passerines,
       image: 'assets/goldfinch4.png',
     ),
@@ -222,7 +222,7 @@ class DYK {
       question:
           "The brighter the yellow chest of the male great tit, the more attractive he is to female great tits. Why might this be?",
       answer:
-          "Brighter yellow chests are caused by the presence of carotenoids, which are red, orange and yellow pigments produced by some plants. Carotenoids cannot be made by the bird, and have to be obtained from food. A bright yellow chest signifies to the female that the male is healthy and well fed, and will therefore also be able to feed his young brood. Colours also change after the annual moult.More dominant males also tend to have thicker stripes running down the middle of their undersides.",
+          "Brighter yellow chests are caused by the presence of carotenoids, which are red, orange and yellow pigments produced by some plants. Carotenoids cannot be made by the bird, and have to be obtained from food. A bright yellow chest signifies to the female that the male is healthy and well fed, and will therefore also be able to feed his young brood. Colours also change after the annual moult. More dominant males also tend to have thicker stripes running down the middle of their undersides.",
       type: DYKType.passerines,
       image: 'assets/greattit1.png',
     ),
@@ -245,7 +245,7 @@ class DYK {
     DYK(
       question: "Why did Victorians keep goldfinches as cage birds?",
       answer:
-          "Goldfinch have a beautiful call and song, variously described as “liquid and silken” or a “melodic liquid twittering”. Because of their striking red and gold appearance, but particularly because of the beauty of their song, goldfinch were trapped in their thousands to be sold as caged birds. This, along with persecution, caused a severe decline in the bird’s numbers. One of the first campaigns of the Royal Society for the Protection of Birds, which formed in 1889, was to stop this trade.",
+          "Goldfinches have a beautiful call and song, variously described as “liquid and silken” or a “melodic liquid twittering”. Because of their striking red and gold appearance, but particularly because of the beauty of their song, goldfinches were trapped in their thousands to be sold as caged birds. This, along with persecution, caused a severe decline in the bird’s numbers. One of the first campaigns of the Royal Society for the Protection of Birds, which formed in 1889, was to stop this trade.",
       type: DYKType.passerines,
       image: 'assets/goldfinch3.png',
     ),
@@ -294,7 +294,7 @@ class DYK {
     DYK(
       question: "Why don’t I see greenfinches very often?",
       answer:
-          "Sadly, greenfinches have suffered a very dramatic decline in their numbers, as the result of a disease called avian trichomonosis. This appeared in the UK in 2005 and is caused by parasitic organism called Trichomonas gallinae which contaminates water and food. Birds afflicted with the parasite become unable to eat or drink and die of starvation or thirst. It’s thought that poor hygiene at bird feeders and bird baths contributed to the rapid spread of the disease, as it is highly contagious, with multiple ways of spreading between birds. It’s thought that around 12% of the UK’s former population of 4 million birds might have died as the result of this disease. There are concerns that the greenfinch could become endangered as the result of this disease. The greenfinch is not the only bird that may be affected by this parasite, although it appears to have suffered most seriously from it. Chaffinches, goldfinches, house sparrows and bullfinches can also be infected.",
+          "Sadly, greenfinches have suffered a very dramatic decline in their numbers, as the result of a disease called avian trichomonosis. This appeared in the UK in 2005 and is caused by a parasitic organism called Trichomonas gallinae which contaminates water and food. Birds afflicted with the parasite become unable to eat or drink and die of starvation or thirst. It’s thought that poor hygiene at bird feeders and bird baths contributed to the rapid spread of the disease, as it is highly contagious, with multiple ways of spreading between birds. It’s thought that around 12% of the UK’s former population of 4 million birds might have died as the result of this disease. There are concerns that the greenfinch could become endangered as the result of this disease. The greenfinch is not the only bird that may be affected by this parasite, although it appears to have suffered most seriously from it. Chaffinches, goldfinches, house sparrows and bullfinches can also be infected.",
       type: DYKType.passerines,
       image: 'assets/greenfinch.png',
     ),
@@ -309,7 +309,7 @@ class DYK {
     DYK(
       question: "Do carrion crows have predators?",
       answer:
-          "As carrion crows are large birds with good defensive abilities and that will act together to drive potential predators away, they do not have many predators. While sparrowhawks nest in Redland, carrion crows are both larger and heavier than female sparrowhawks (which are larger and heavier than male sparrowhawks). Adult crows are not likely to be bothered by the presence of sparrowhawks, although sparrowhawks could attempt to predate fledgling crows. However, birds such as the peregrine falcon and the golden eagle will hunt crows. Those crows local to Redland Green are unlikely to have much to worry about from avian predation, although perhaps they should not be too complacent, as peregrine falcons do breed in the Avon Gorge, and elsewhere in Bristol.",
+          "As carrion crows are large birds with good defensive abilities and that will act together to drive potential predators away, they do not have many predators. While sparrowhawks nest in Redland, carrion crows are both larger and heavier than female sparrowhawks (which are larger and heavier than male sparrowhawks). Adult crows are not likely to be bothered by the presence of sparrowhawks, although sparrowhawks could attempt to prey on fledgling crows. However, birds such as the peregrine falcon and the golden eagle will hunt crows. Those crows local to Redland Green are unlikely to have much to worry about from avian predation, although perhaps they should not be too complacent, as peregrine falcons do breed in the Avon Gorge, and elsewhere in Bristol.",
       type: DYKType.corvids,
       image: 'assets/crow2.png',
     ),
@@ -330,14 +330,14 @@ class DYK {
     DYK(
       question: "Are there tawny owls in Redland?",
       answer:
-          "Yes. Tawny owls can be heard in several places around Redland, including the green. The female’s ‘ke-wick’ and the male’s answering ‘hoo hoo’ can be heard at night. Tawnies favour deciduous woodland and nest in tree cavities and old buildings. Their main prey are mice and voles, but they also eat frogs and invertebrates, and sometimes small birds. They are ambush predators, and typically watch for prey from a perch, hunting at dusk and during the night. Females typically weigh about 500g and males rather less than 400g.There are estimated to be 50,000 breeding pairs in the UK. Their conservation status is amber. ",
+          "Yes. Tawny owls can be heard in several places around Redland, including the green. The female’s ‘ke-wick’ and the male’s answering ‘hoo hoo’ can be heard at night. Tawnies favour deciduous woodland and nest in tree cavities and old buildings. Their main prey are mice and voles, but they also eat frogs and invertebrates, and sometimes small birds. They are ambush predators, and typically watch for prey from a perch, hunting at dusk and during the night. Females typically weigh about 500g and males rather less than 400g. There are estimated to be 50,000 breeding pairs in the UK. Their conservation status is amber. ",
       type: DYKType.birdsOfPrey,
       image: 'assets/owl.png',
     ),
     DYK(
       question: "Do sparrowhawks control how many small birds are in an area?",
       answer:
-          "Although sparrowhawks predate small birds, the short answer is “no, they don’t”. That’s because the number of sparrowhawks in a given area is limited by the “carrying capacity” of the habitat, which means that the amount of food and availability of nesting sites constrain how many individuals can survive. Young birds don’t pair and breed until there is vacant territory and plentiful food. This means that there is a close relationship between the number of small birds and sparrowhawks. Both increases and decreases in small bird populations are mirrored by corresponding changes in the number of sparrowhawks. Sparrowhawks are therefore indicators of the health of an ecosystem.",
+          "Although sparrowhawks prey on small birds, the short answer is “no, they don’t”. That’s because the number of sparrowhawks in a given area is limited by the “carrying capacity” of the habitat, which means that the amount of food and availability of nesting sites constrain how many individuals can survive. Young birds don’t pair and breed until there is vacant territory and plentiful food. This means that there is a close relationship between the number of small birds and sparrowhawks. Both increases and decreases in small bird populations are mirrored by corresponding changes in the number of sparrowhawks. Sparrowhawks are therefore indicators of the health of an ecosystem.",
       type: DYKType.birdsOfPrey,
       image: 'assets/sparrowhawk_2.png',
     ),
@@ -353,7 +353,7 @@ class DYK {
       answer:
           "There aren’t any known sightings of kestrels in Redland, although kestrels have adapted to live in cities. The kestrel, a member of the falcon family, and with the long, scythe-like wings of that family, hunts by hovering 10-20 metres over grassland, spotting prey with its extremely sharp eyesight and plummeting to the ground in pursuit of a kill. Females are larger than males. Kestrels’ main prey are small mammals such as voles, shrews and mice, although they may also take small birds, lizards and invertebrates. When hovering, the kestrel’s tail is spread into a fan shape. Sparrowhawks do not hover, being ambush predators of mainly birds, so hunting technique is one of the ways of telling these two species apart."
           "\n\nKestrel populations have fallen, and they are now on the "
-          "amber list of conservation concern. This may because modern farming practices have eliminated wide field margins, therefore also eliminating the habitat of the kestrel’s main prey items. The UK population of kestrels may be as low as 30,000 pairs. ",
+          "amber list of conservation concern. This may be because modern farming practices have eliminated wide field margins, therefore also eliminating the habitat of the kestrel’s main prey items. The UK population of kestrels may be as low as 30,000 pairs. ",
       type: DYKType.birdsOfPrey,
       image: 'assets/kestrel.png',
     ),
@@ -383,7 +383,7 @@ class DYK {
       answer:
           "Murmuration derives from the word “murmur”, which is a low sound, such as a rumble. In winter, many small groups of starlings join together at dusk to form a huge flock (thousands, or even millions of individuals) and fly in a tight, synchronised formation, making spectacular and ever shifting patterns in the sky for a variable period of time, before they descend into their chosen communal roost for the night. They roost communally both for protection and to share bodily warmth. The noise made by the beating of many pairs of wings as they perform these spectacular airborne manoeuvrings sounds rather like murmuring – hence the name. It is thought that starlings murmurate to avoid predation by dazzling and confusing their predators. These include peregrine falcons, marsh harriers and several other raptors.",
       type: DYKType.passerines,
-      image: 'assets/starling3.png',
+      image: 'assets/starling4.png',
     ),
     DYK(
       question:
@@ -391,7 +391,7 @@ class DYK {
       answer:
           "In a murmuration, starlings may be flying in close formation at speeds of over 90mph, and although the flock performs frequent changes of direction, collisions don’t happen. Although murmurations are far from fully understood, it is thought that a process known as “scale-free correlation” ensures individuals don’t collide. It seems that each bird in the flock communicates only with its 6 or 7 nearest neighbours, following their cues and copying their movements. A change of direction by a single bird will be copied by its neighbours, and then by their neighbours, thus propagating through all or most of the flock. An analogy with this is the way in which particles move in an avalanche, with the same process of scale-free correlation.",
       type: DYKType.passerines,
-      image: 'assets/starling1.png',
+      image: 'assets/starling.png',
     ),
     DYK(
       question: "Do birds other than starlings form murmurations?",

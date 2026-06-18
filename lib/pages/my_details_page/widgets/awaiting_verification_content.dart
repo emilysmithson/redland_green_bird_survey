@@ -53,7 +53,7 @@ class _AwaitingVerificationContentState
                   widget.controller.content.value =
                       MyDetailsView.unauthenticated;
                 },
-                child: const Text('go back'),
+                child: const Text('Go back'),
               ),
             ],
           ),

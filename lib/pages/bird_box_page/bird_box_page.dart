@@ -150,7 +150,7 @@ class _BirdBoxPageState extends State<BirdBoxPage> {
                       navigateTo: BirdBoxTypePage(
                         boxType: widget.birdBox.boxType,
                       ),
-                      text: '\nBoxType: ${widget.birdBox.boxType.name}',
+                      text: '\nBox type: ${widget.birdBox.boxType.name}',
                       imageAsset: widget.birdBox.boxType.image,
                     ),
                   ),
@@ -166,7 +166,7 @@ class _BirdBoxPageState extends State<BirdBoxPage> {
                     padding: EdgeInsets.all(8.0),
                     child: Text(
                       'No observations have been made for this bird box yet.'
-                      '\n\nTo enter one, tap the obervations button above',
+                      '\n\nTo enter one, tap the observations button above',
                     ),
                   )
                 : Column(
