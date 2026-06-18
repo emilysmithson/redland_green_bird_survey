@@ -10,9 +10,10 @@ enum MyDetailsView {
 }
 
 class MyDetailsController {
-  final ValueNotifier<MyDetailsView> content =
-      ValueNotifier<MyDetailsView>(MyDetailsView.unauthenticated);
-  initialise() {
+  final ValueNotifier<MyDetailsView> content = ValueNotifier<MyDetailsView>(
+    MyDetailsView.unauthenticated,
+  );
+  void initialise() {
     if (FirebaseAuth.instance.currentUser == null) {
       content.value = MyDetailsView.unauthenticated;
     } else {

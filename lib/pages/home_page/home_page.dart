@@ -21,7 +21,7 @@ import 'widgets/sightings_page_tile.dart';
 import 'widgets/welcome_page_tile.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -76,32 +76,36 @@ class _HomePageState extends State<HomePage> {
               heroTag: 'latestNews',
               imageLeft: false,
               widget: LatestNewsPageTile(),
-            )
+            ),
           ],
           gridList: [
             const RGGridTile(
-                heroTag: 'songthrush',
-                navigateTo: BirdIdentifierScreen(),
-                text: 'Redland Green Birds',
-                imageAsset: 'assets/songthrush.png'),
+              heroTag: 'songthrush',
+              navigateTo: BirdIdentifierScreen(),
+              text: 'Redland Green Birds',
+              imageAsset: 'assets/songthrush.png',
+            ),
             RGGridTile(
-                heroTag: 'greattit',
-                navigateTo: const EnterObservationsPage(),
-                setState: () {
-                  setState(() {});
-                },
-                text: 'Enter observations ',
-                imageAsset: 'assets/greattit2.png'),
+              heroTag: 'greattit',
+              navigateTo: const EnterObservationsPage(),
+              setState: () {
+                setState(() {});
+              },
+              text: 'Enter observations ',
+              imageAsset: 'assets/greattit2.png',
+            ),
             const RGGridTile(
-                heroTag: 'map_page',
-                navigateTo: MapPage(),
-                text: 'Map',
-                imageAsset: 'assets/dunnock2.png'),
+              heroTag: 'map_page',
+              navigateTo: MapPage(),
+              text: 'Map',
+              imageAsset: 'assets/dunnock2.png',
+            ),
             const RGGridTile(
-                heroTag: 'bird_box_list',
-                navigateTo: BirdBoxListPage(),
-                text: 'Bird Box List',
-                imageAsset: 'assets/jay1.png'),
+              heroTag: 'bird_box_list',
+              navigateTo: BirdBoxListPage(),
+              text: 'Bird Box List',
+              imageAsset: 'assets/jay1.png',
+            ),
             const RGGridTile(
               heroTag: 'fact_page',
               navigateTo: DidYouKnowPage(),
@@ -115,15 +119,17 @@ class _HomePageState extends State<HomePage> {
               navigateTo: QuizPage(),
             ),
             const RGGridTile(
-                heroTag: 'information',
-                navigateTo: InformationPage(),
-                text: 'About',
-                imageAsset: 'assets/wagtail.png'),
+              heroTag: 'information',
+              navigateTo: InformationPage(),
+              text: 'About',
+              imageAsset: 'assets/wagtail.png',
+            ),
             const RGGridTile(
-                heroTag: 'my_details',
-                navigateTo: MyDetailsPage(),
-                text: 'My details',
-                imageAsset: 'assets/coaltit1.png'),
+              heroTag: 'my_details',
+              navigateTo: MyDetailsPage(),
+              text: 'My details',
+              imageAsset: 'assets/coaltit1.png',
+            ),
           ],
           heroTag: 'robin1',
         ),

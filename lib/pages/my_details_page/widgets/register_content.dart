@@ -6,7 +6,7 @@ import '../my_details_controller.dart';
 
 class RegisterContent extends StatefulWidget {
   final MyDetailsController controller;
-  const RegisterContent({Key? key, required this.controller}) : super(key: key);
+  const RegisterContent({super.key, required this.controller});
 
   @override
   _RegisterContentState createState() => _RegisterContentState();
@@ -25,27 +25,32 @@ class _RegisterContentState extends State<RegisterContent> {
   @override
   Widget build(BuildContext context) {
     // Example code for registration.
-    Future<void> _register() async {
-      final FirebaseAuth _auth = FirebaseAuth.instance;
+    Future<void> register() async {
+      final FirebaseAuth auth = FirebaseAuth.instance;
+      User? user;
 
-      final User? user = (await _auth
-              .createUserWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      )
-              .catchError((error) {
+      try {
+        user = (await auth.createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        )).user;
+      } on FirebaseAuthException catch (error) {
         if (kDebugMode) {
           print(error.toString());
         }
         if (error.toString() ==
             '[firebase_auth/email-already-in-use] The email address is already in use by another account.') {
+          if (!context.mounted) {
+            return;
+          }
           showDialog(
             context: context,
             builder: (BuildContext context) {
               return AlertDialog(
                 title: const Text('Oh dear'),
                 content: Text(
-                    "The email address ${emailController.value.text} has already been registered. Please log in."),
+                  "The email address ${emailController.value.text} has already been registered. Please log in.",
+                ),
                 actions: [
                   ElevatedButton(
                     onPressed: () {
@@ -63,11 +68,15 @@ class _RegisterContentState extends State<RegisterContent> {
             print(error.toString());
           }
         }
-      }))
-          .user;
+        return;
+      }
 
       if (user != null) {
-        user.updateDisplayName(nickNameController.value.text);
+        final createdUser = user;
+        createdUser.updateDisplayName(nickNameController.value.text);
+        if (!context.mounted) {
+          return;
+        }
 
         showDialog(
           barrierDismissible: false,
@@ -75,13 +84,15 @@ class _RegisterContentState extends State<RegisterContent> {
           builder: (BuildContext context) {
             return AlertDialog(
               title: Text(
-                  "Thank you, ${nickNameController.value.text}, for registering to use this app"),
+                "Thank you, ${nickNameController.value.text}, for registering to use this app",
+              ),
               content: const Text(
-                  "You have been sent an email with a verification link. Please click that link to continue."),
+                "You have been sent an email with a verification link. Please click that link to continue.",
+              ),
               actions: [
                 ElevatedButton(
                   onPressed: () {
-                    user.sendEmailVerification();
+                    createdUser.sendEmailVerification();
                     widget.controller.content.value =
                         MyDetailsView.awaitingVerification;
                     Navigator.pop(context);
@@ -97,22 +108,24 @@ class _RegisterContentState extends State<RegisterContent> {
       }
     }
 
-    return Column(children: [
-      const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Text(
+    return Column(
+      children: [
+        const Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Text(
             'You need to register in order to use this app. We will never share '
-            'your details with third parties.'),
-      ),
-      Stepper(
+            'your details with third parties.',
+          ),
+        ),
+        Stepper(
           currentStep: _currentStep,
           onStepContinue: () async {
             switch (_currentStep) {
               case 0:
                 final String email = emailController.value.text;
                 if (RegExp(
-                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                    .hasMatch(email)) {
+                  r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                ).hasMatch(email)) {
                   setState(() {
                     _emailErrorMsg = false;
                     _currentStep++;
@@ -141,9 +154,9 @@ class _RegisterContentState extends State<RegisterContent> {
                     _nickNameErrorMsg = false;
                   });
                   setState(() {
-                    isLoading == true;
+                    isLoading = true;
                   });
-                  _register();
+                  await register();
                 } else {
                   setState(() {
                     _nickNameErrorMsg = true;
@@ -164,14 +177,12 @@ class _RegisterContentState extends State<RegisterContent> {
           },
           steps: [
             Step(
-              title: const Text(
-                'Please enter your email address',
-              ),
+              title: const Text('Please enter your email address'),
               subtitle: _emailErrorMsg
-                  ? const Text('Please enter a valid e-mail address',
-                      style: TextStyle(
-                        color: Colors.red,
-                      ))
+                  ? const Text(
+                      'Please enter a valid e-mail address',
+                      style: TextStyle(color: Colors.red),
+                    )
                   : const Text(''),
               content: Container(
                 margin: const EdgeInsets.all(8),
@@ -183,7 +194,7 @@ class _RegisterContentState extends State<RegisterContent> {
                       color: Colors.grey,
                       offset: Offset(5.0, 5.0),
                       blurRadius: 5.0,
-                    )
+                    ),
                   ],
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
@@ -207,10 +218,10 @@ class _RegisterContentState extends State<RegisterContent> {
                 children: [
                   const Text('At least 6 characters'),
                   _passwordErrorMsg
-                      ? const Text('Please enter a valid password',
-                          style: TextStyle(
-                            color: Colors.red,
-                          ))
+                      ? const Text(
+                          'Please enter a valid password',
+                          style: TextStyle(color: Colors.red),
+                        )
                       : const Text(''),
                 ],
               ),
@@ -224,7 +235,7 @@ class _RegisterContentState extends State<RegisterContent> {
                       color: Colors.grey,
                       offset: Offset(5.0, 5.0),
                       blurRadius: 5.0,
-                    )
+                    ),
                   ],
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
@@ -248,9 +259,8 @@ class _RegisterContentState extends State<RegisterContent> {
               subtitle: _nickNameErrorMsg
                   ? const Text(
                       'Please choose a nickname with at least 3 characters.',
-                      style: TextStyle(
-                        color: Colors.red,
-                      ))
+                      style: TextStyle(color: Colors.red),
+                    )
                   : const Text(''),
               content: Container(
                 margin: const EdgeInsets.all(8),
@@ -262,7 +272,7 @@ class _RegisterContentState extends State<RegisterContent> {
                       color: Colors.grey,
                       offset: Offset(5.0, 5.0),
                       blurRadius: 5.0,
-                    )
+                    ),
                   ],
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
@@ -279,7 +289,9 @@ class _RegisterContentState extends State<RegisterContent> {
                 ),
               ),
             ),
-          ])
-    ]);
+          ],
+        ),
+      ],
+    );
   }
 }

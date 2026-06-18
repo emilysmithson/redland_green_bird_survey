@@ -6,8 +6,8 @@ Widget observationDescription({
   required List sightingTypeList,
 }) {
   return Column(
-      children: sightingTypeList.map((sightingType) {
-    return GestureDetector(
+    children: sightingTypeList.map((sightingType) {
+      return GestureDetector(
         onTap: () {
           onSelected!(sightingType.id);
         },
@@ -17,9 +17,7 @@ Widget observationDescription({
           margin: const EdgeInsets.all(4),
           decoration: BoxDecoration(
             color: Colors.green[50],
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
-            ),
+            borderRadius: const BorderRadius.all(Radius.circular(20)),
             boxShadow: sightingType == sightingType.id
                 ? []
                 : [
@@ -27,7 +25,7 @@ Widget observationDescription({
                       color: Colors.grey,
                       offset: Offset(3.0, 3.0),
                       blurRadius: 3.0,
-                    )
+                    ),
                   ],
             border: Border.all(
               width: sightingType == sightingType.id ? 2.0 : 0.0,
@@ -35,11 +33,10 @@ Widget observationDescription({
             ),
           ),
           child: Center(
-            child: Text(
-              sightingType.description,
-              textAlign: TextAlign.center,
-            ),
+            child: Text(sightingType.description, textAlign: TextAlign.center),
           ),
-        ));
-  }).toList());
+        ),
+      );
+    }).toList(),
+  );
 }

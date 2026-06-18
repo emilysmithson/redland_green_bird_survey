@@ -5,7 +5,7 @@ import '../../widgets/page_template.dart';
 import 'widgets/quiz_flipcard_widget.dart';
 
 class QuizPage extends StatefulWidget {
-  const QuizPage({Key? key}) : super(key: key);
+  const QuizPage({super.key});
 
   @override
   _QuizPageState createState() => _QuizPageState();
@@ -25,12 +25,12 @@ class _QuizPageState extends State<QuizPage> {
       widgetList: quizQuestion == -1
           ? introduction()
           : quizQuestion == 20
-              ? result()
-              : body(QuizQuestion.quizQuestions[quizQuestion]),
+          ? result()
+          : body(QuizQuestion.quizQuestions[quizQuestion]),
     );
   }
 
-  onTap(bool correct) {
+  void onTap(bool correct) {
     if (firstGuess) {
       if (correct) {
         score++;
@@ -67,21 +67,22 @@ class _QuizPageState extends State<QuizPage> {
       Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
         child: GridView.builder(
-            padding: const EdgeInsets.all(0),
-            shrinkWrap: true,
-            itemCount: question.images.length,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              childAspectRatio: 1,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return QuizFlipCardWidget(
-                image: 'assets/${question.images[index]}',
-                correct: index == question.correctAnswer,
-                answer: question.answers[index],
-                onTap: onTap,
-              );
-            }),
+          padding: const EdgeInsets.all(0),
+          shrinkWrap: true,
+          itemCount: question.images.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: 1,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            return QuizFlipCardWidget(
+              image: 'assets/${question.images[index]}',
+              correct: index == question.correctAnswer,
+              answer: question.answers[index],
+              onTap: onTap,
+            );
+          },
+        ),
       ),
       Padding(
         padding: const EdgeInsets.all(16.0),
@@ -105,10 +106,10 @@ class _QuizPageState extends State<QuizPage> {
                       });
                     },
                   )
-                : Container()
+                : Container(),
           ],
         ),
-      )
+      ),
     ];
   }
 
@@ -125,16 +126,15 @@ class _QuizPageState extends State<QuizPage> {
       const Padding(
         padding: EdgeInsets.all(8.0),
         child: Text(
-            'Try these 20 multiple-choice questions testing you on your bird knowlege.'),
+          'Try these 20 multiple-choice questions testing you on your bird knowlege.',
+        ),
       ),
       Padding(
         padding: const EdgeInsets.all(16.0),
         child: Container(
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage('assets/owl.png'),
-            ),
+            image: DecorationImage(image: AssetImage('assets/owl.png')),
           ),
           height: 250,
           width: 250,
@@ -152,7 +152,7 @@ class _QuizPageState extends State<QuizPage> {
             });
           },
         ),
-      )
+      ),
     ];
   }
 
@@ -183,9 +183,7 @@ class _QuizPageState extends State<QuizPage> {
         child: Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage(asset),
-            ),
+            image: DecorationImage(image: AssetImage(asset)),
           ),
           height: 250,
           width: 250,
@@ -210,7 +208,7 @@ class _QuizPageState extends State<QuizPage> {
                   firstGuess = true;
                 });
               },
-            )
+            ),
           ],
         ),
       ),

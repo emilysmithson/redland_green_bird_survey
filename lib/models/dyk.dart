@@ -5,7 +5,7 @@ enum DYKType {
   passerines,
   corvids,
   birdsOfPrey,
-  woodpeckers
+  woodpeckers,
 }
 
 class DYK {
@@ -113,9 +113,9 @@ class DYK {
     DYK(
       question: 'Will starlings use the nest boxes in Redland Green? ',
       answer:
-          'Starlings will use nest boxes, although Redland Green does not currently have any nest boxes suitable for starlings. They prefer nest boxes with larger holes than any of our boxes have (45mm) and also prefer slightly larger boxes than ours are. As they are gregarious, several boxes may be located within a few metres of each other.',
+          'Starlings will use nest boxes, and Redland Green Community Group erected one starling box in 2022 as a trial near to the Redland Tennis Club; if used, the group may install more. As starlings are gregarious, new boxes coujld be located in close proximity to the existing box. several boxes may be located within a few metres of each other.  \n\nStarlings prefer nest boxes with large holes of around 45mm and also prefer slightly larger boxes than the boxes used by smaller birds such as tits.',
       type: DYKType.nestBoxes,
-      image: 'assets/starling4.png',
+      image: 'assets/starling5.png',
     ),
     DYK(
       question: 'Will swifts use the nest boxes in Redland Green?',
@@ -192,14 +192,14 @@ class DYK {
     DYK(
       question: "What is a passerine?",
       answer:
-          "A passerine is any bird of the order Passeriformes. They are also known as perching birds and as songbirds. A distinguishing characteristic of the passerines is that they have three toes directed forwards and one directed backwards; an arrangement which makes it easier to perch on branches. Their legs have a further adaptation: a tendon, which runs from the toes to a muscle in the leg tightens when the leg bends. This causes the foot to curl and tighten when the bird lands on the branch. This is the reason that passerines can perch in trees while asleep without falling off. With more than 6,500 species belonging to more than 140 families, passerines include more than half of all bird species.Many of the birds in Redland Green, including the corvids (crow family) are passerines. Neither the sparrowhawk nor the two species of woodpecker found here are passerines.",
+          "A passerine is any bird of the order Passeriformes. They are also known as perching birds and as songbirds. A distinguishing characteristic of the passerines is that they have three toes directed forwards and one directed backwards; an arrangement which makes it easier to perch on branches. Their legs have a further adaptation: a tendon, which runs from the toes to a muscle in the leg tightens when the leg bends. This causes the foot to curl and tighten when the bird lands on the branch. This is the reason that passerines can perch in trees while asleep without falling off. With more than 6,500 species belonging to more than 140 families, passerines include more than half of all bird species. Many of the birds in Redland Green, including the corvids (crow family) are passerines. However,  the sparrowhawk, the wood pigeon and the two species of woodpecker found here belong to different orders.",
       type: DYKType.passerines,
       image: 'assets/crow2.png',
     ),
     DYK(
       question: "How long do songbirds (passerines) live?",
       answer:
-          "While some birds have extremely long lives (for example, most species of albatross live for over 50 years), many birds, including the passerines (‘songbirds’ or ‘perching birds’ - see the question ‘What is a passerine?’) have quite short lives. Robins, wrens, nuthatches, pied flycatchers and pied wagtails live on average for two years. Blackbirds and song thrushes, the house sparrow, and blue and great tits average three years. However, sometimes individuals greatly exceed the average lifespan. The oldest known pied flycatcher was over 16 years old and one pied wagtail reached 11. A house sparrow was recorded as over 13 years old. The oldest known robin reached 19, and the oldest known blackbird made it to 20 years old!",
+          "While some birds have extremely long lives (for example, most species of albatross live for over 50 years), many birds, including the passerines (‘songbirds’ or ‘perching birds’ - see the question ‘What is a passerine?’) have quite short lives. Robins, wrens,  oldfinches, long-tailed tits, coal tits, nuthatches, pied flycatchers and pied wagtails live on average for two years. Blackbirds and song thrushes, the house sparrow, and blue and great tits average three years. Starlings live on average for five years. However, sometimes individuals greatly exceed the average lifespan. The oldest known pied flycatcher was over 16 years old and one pied wagtail reached 11. A house sparrow was recorded as over 13 years old. The oldest known robin reached 19, and the oldest known blackbird made it to 20 years old!",
       type: DYKType.passerines,
       image: 'assets/wren3.png',
     ),
@@ -240,7 +240,7 @@ class DYK {
       answer:
           "The great tit is likely to be successfully raised along with the rest of the brood, but it will be confused about its species. It won’t recover from this, and will not be able to breed.",
       type: DYKType.passerines,
-      image: 'assets/greattit3png',
+      image: 'assets/greattit3.png',
     ),
     DYK(
       question: "Why did Victorians keep goldfinches as cage birds?",
@@ -283,13 +283,6 @@ class DYK {
           "Dunnocks are unlike most other song birds in that they have a variety of mating systems, and which may differ from one breeding season to another. In polyandry, females mate with two or more males. In polygyny, two or more females mate with one male, and only that male. They also practice polygynandry, in which males and females both mate with two or more mates, and monogamy (the female and male mate only with each other) in a breeding season. The system that is adopted depends upon a multiplicity of factors. One is the ratio of females to males in an area; another is the degree to which territories overlap. Monogamy is likely if one female and one male territory overlap. If two or three female territories overlap one male territory, the birds are likely to be polygamous. If two males co-operate to defend a territory that has several females, they will adopt polygynandry. Polyandry is the most common breeding system overall. With respect to an individual bird’s success in passing on its genes, polygyny favours males, and polyandry favours females. Another factor that influences breeding behaviour is the availability of food. Female territories reduce in size if food is plentiful. This makes it easier for males to have exclusive access to females. These factors mean that different mating behaviours will be adopted by the same birds in different breeding seasons.",
       type: DYKType.passerines,
       image: 'assets/dunnock2.png',
-    ),
-    DYK(
-      question: "What is the most widely distributed bird in the world?",
-      answer:
-          "The house sparrow. While native to most of Europe and part of Asia, it has been both deliberately and accidentally introduced to many other parts of the world, including Australasia, the Americas and Africa.",
-      type: DYKType.passerines,
-      image: 'assets/sparrow.png',
     ),
     DYK(
       question: "Why do robins feature so often on Christmas cards?",
@@ -363,6 +356,56 @@ class DYK {
           "amber list of conservation concern. This may because modern farming practices have eliminated wide field margins, therefore also eliminating the habitat of the kestrel’s main prey items. The UK population of kestrels may be as low as 30,000 pairs. ",
       type: DYKType.birdsOfPrey,
       image: 'assets/kestrel.png',
+    ),
+    DYK(
+      question: "Which bird used to be known as a “quisty”?",
+      answer:
+          "The quisty is an old Somerset term for the woodpigeon. Other names for the woodpigeon were cushat, cushy-do and ringdow. ",
+      type: DYKType.birdNames,
+      image: 'assets/pigeon.png',
+    ),
+    DYK(
+      question: "What is special about the long-tailed tit’s tail?",
+      answer:
+          "The long-tailed tit has the longest tail in proportion to its body of any British bird.",
+      type: DYKType.passerines,
+      image: 'assets/longtailedtit3.png',
+    ),
+    DYK(
+      question: "Which famous composer had a pet starling?",
+      answer:
+          "The 18th century Austrian composer Wolfgang Amadeus Mozart had a pet starling. Starlings are famous for their ability as mimics, and in the wild will mimic other birds’ songs. Apparently, Mozart’s starling could sing a theme from the final movement of his 17th Piano Concerto.",
+      type: DYKType.passerines,
+      image: 'assets/starling2.png',
+    ),
+    DYK(
+      question: "What is a ‘murmuration’?",
+      answer:
+          "Murmuration derives from the word “murmur”, which is a low sound, such as a rumble. In winter, many small groups of starlings join together at dusk to form a huge flock (thousands, or even millions of individuals) and fly in a tight, synchronised formation, making spectacular and ever shifting patterns in the sky for a variable period of time, before they descend into their chosen communal roost for the night. They roost communally both for protection and to share bodily warmth. The noise made by the beating of many pairs of wings as they perform these spectacular airborne manoeuvrings sounds rather like murmuring – hence the name. It is thought that starlings murmurate to avoid predation by dazzling and confusing their predators. These include peregrine falcons, marsh harriers and several other raptors.",
+      type: DYKType.passerines,
+      image: 'assets/starling3.png',
+    ),
+    DYK(
+      question:
+          "How do starlings avoid colliding with each other in a murmuration?",
+      answer:
+          "In a murmuration, starlings may be flying in close formation at speeds of over 90mph, and although the flock performs frequent changes of direction, collisions don’t happen. Although murmurations are far from fully understood, it is thought that a process known as “scale-free correlation” ensures individuals don’t collide. It seems that each bird in the flock communicates only with its 6 or 7 nearest neighbours, following their cues and copying their movements. A change of direction by a single bird will be copied by its neighbours, and then by their neighbours, thus propagating through all or most of the flock. An analogy with this is the way in which particles move in an avalanche, with the same process of scale-free correlation.",
+      type: DYKType.passerines,
+      image: 'assets/starling1.png',
+    ),
+    DYK(
+      question: "Do birds other than starlings form murmurations?",
+      answer:
+          "Many other birds, such as jackdaws, form large airborne flocks, particularly at dusk, but starlings are the only birds to show the particular swirling, synchronised formation known as a murmuration. So no, other birds do not murmurate.",
+      type: DYKType.passerines,
+      image: 'assets/jackdaw1.png',
+    ),
+    DYK(
+      question: "Where can I see a murmuration?",
+      answer:
+          "The closest place to Bristol is probably Ham Wall or Shapwick Heath in Somerset. The winter murmuration there is thought to be the largest one in the UK and contains birds which have been feeding in a radius of 20 miles around the area, many of which are winter visitors from northern Europe and Scandinavia. Other famous murmuration sites include Brighton Pier in Sussex and RSPB Minsmere in Suffolk.",
+      type: DYKType.passerines,
+      image: 'assets/starling.png',
     ),
   ];
 }

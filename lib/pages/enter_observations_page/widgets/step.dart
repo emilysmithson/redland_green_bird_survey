@@ -9,21 +9,22 @@ class CustomStep {
   bool? isLast = false;
   bool? proceed;
   String? errorMsg;
-  CustomStep(
-      {this.stepNumber,
-      this.title,
-      this.content,
-      this.onNext,
-      this.isLast,
-      this.isFirst,
-      this.proceed,
-      this.errorMsg});
+  CustomStep({
+    this.stepNumber,
+    this.title,
+    this.content,
+    this.onNext,
+    this.isLast,
+    this.isFirst,
+    this.proceed,
+    this.errorMsg,
+  });
 }
 
 class CustomStepper extends StatefulWidget {
   final List<CustomStep>? customStepList;
 
-  const CustomStepper({Key? key, this.customStepList}) : super(key: key);
+  const CustomStepper({super.key, this.customStepList});
   @override
   _CustomStepperState createState() => _CustomStepperState();
 }
@@ -36,15 +37,16 @@ class _CustomStepperState extends State<CustomStepper> {
   @override
   Widget build(BuildContext context) {
     return PageView(
-        controller: controller,
-        onPageChanged: (newPage) {
-          currentPage = newPage;
-        },
-        physics: const NeverScrollableScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        children: widget.customStepList!.map((CustomStep step) {
-          return customStep(step: step);
-        }).toList());
+      controller: controller,
+      onPageChanged: (newPage) {
+        currentPage = newPage;
+      },
+      physics: const NeverScrollableScrollPhysics(),
+      scrollDirection: Axis.vertical,
+      children: widget.customStepList!.map((CustomStep step) {
+        return customStep(step: step);
+      }).toList(),
+    );
   }
 
   Widget customStep({required CustomStep step}) {
@@ -66,9 +68,7 @@ class _CustomStepperState extends State<CustomStepper> {
                 textAlign: TextAlign.start,
               ),
             ),
-            Expanded(
-              child: step.content!,
-            ),
+            Expanded(child: step.content!),
             if (showErrorMsg)
               Text(
                 step.errorMsg ?? '',
@@ -80,7 +80,9 @@ class _CustomStepperState extends State<CustomStepper> {
                 Visibility(
                   visible: !step.isFirst!,
                   child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(primary: Colors.green[100]),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green[100],
+                    ),
                     onPressed: () {
                       currentPage--;
                       controller.animateToPage(
@@ -91,18 +93,17 @@ class _CustomStepperState extends State<CustomStepper> {
                     },
                     child: Row(
                       children: const [
-                        Text(
-                          'Back',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        Icon(Icons.keyboard_arrow_up, color: Colors.black)
+                        Text('Back', style: TextStyle(color: Colors.black)),
+                        Icon(Icons.keyboard_arrow_up, color: Colors.black),
                       ],
                     ),
                   ),
                 ),
                 const SizedBox(width: 20),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.green[100]),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green[100],
+                  ),
                   onPressed: () {
                     if (step.proceed!) {
                       setState(() {
@@ -139,7 +140,7 @@ class _CustomStepperState extends State<CustomStepper> {
                   ),
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),

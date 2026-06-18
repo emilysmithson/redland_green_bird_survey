@@ -11,19 +11,19 @@ void needToRegister(BuildContext context) async {
         title: const Text("You are not logged in"),
         actions: <Widget>[
           TextButton(
-              child: const Text('Take me to login page'),
-              onPressed: () {
-                Navigator.pop(context);
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const MyDetailsPage(),
-                  ),
-                );
-              })
+            child: const Text('Take me to login page'),
+            onPressed: () {
+              Navigator.pop(context);
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => const MyDetailsPage()),
+              );
+            },
+          ),
         ],
-        content:
-            const Text('In order to enter an observation you must first login'),
+        content: const Text(
+          'In order to enter an observation you must first login',
+        ),
       );
     },
   );

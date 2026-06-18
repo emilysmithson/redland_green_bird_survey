@@ -5,7 +5,7 @@ import '../../widgets/page_template.dart';
 import 'widgets/flipcard_widget.dart';
 
 class DidYouKnowPage extends StatefulWidget {
-  const DidYouKnowPage({Key? key}) : super(key: key);
+  const DidYouKnowPage({super.key});
 
   @override
   _DidYouKnowPageState createState() => _DidYouKnowPageState();
@@ -62,18 +62,15 @@ class _DidYouKnowPageState extends State<DidYouKnowPage> {
             boxShadow: [
               BoxShadow(
                 color: index == selectedIndex ? Colors.green[50]! : Colors.grey,
-                offset: Offset(index == selectedIndex ? 0 : 5.0,
-                    index == selectedIndex ? 0 : 5.0),
+                offset: Offset(
+                  index == selectedIndex ? 0 : 5.0,
+                  index == selectedIndex ? 0 : 5.0,
+                ),
                 blurRadius: index == selectedIndex ? 0 : 5.0,
-              )
+              ),
             ],
           ),
-          child: Center(
-            child: Text(
-              title,
-              textAlign: TextAlign.center,
-            ),
-          ),
+          child: Center(child: Text(title, textAlign: TextAlign.center)),
         ),
       );
     }
@@ -109,8 +106,10 @@ class _DidYouKnowPageState extends State<DidYouKnowPage> {
               ),
               Column(
                 children: _dykList
-                    .map((dyk) =>
-                        FlipCardWidget(dyk: dyk, key: Key(dyk.question!)))
+                    .map(
+                      (dyk) =>
+                          FlipCardWidget(dyk: dyk, key: Key(dyk.question!)),
+                    )
                     .toList(),
               ),
             ],

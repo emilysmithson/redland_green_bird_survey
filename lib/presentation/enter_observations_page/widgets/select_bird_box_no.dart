@@ -8,8 +8,7 @@ class SelectBirdBoxNo extends StatefulWidget {
   final Function? onSelect;
   final BuildContext? context;
 
-  const SelectBirdBoxNo({Key? key, this.birdBox, this.onSelect, this.context})
-      : super(key: key);
+  const SelectBirdBoxNo({super.key, this.birdBox, this.onSelect, this.context});
   @override
   _SelectBirdBoxNoState createState() => _SelectBirdBoxNoState();
 }
@@ -20,9 +19,10 @@ class _SelectBirdBoxNoState extends State<SelectBirdBoxNo> {
     return Column(
       children: [
         const Text(
-            'This section is only for observing birds that are using our bird boxes. '
-            'If you spot anything else you would like to share, '
-            'please email emily_foulkes@hotmail.com'),
+          'This section is only for observing birds that are using our bird boxes. '
+          'If you spot anything else you would like to share, '
+          'please email emily_foulkes@hotmail.com',
+        ),
         Expanded(
           child: Center(
             child: GridView.builder(
@@ -35,7 +35,7 @@ class _SelectBirdBoxNoState extends State<SelectBirdBoxNo> {
               ),
               itemCount: BirdBox.birdBoxesList.length,
               itemBuilder: (context, index) {
-                BirdBox _birdBox = BirdBox.birdBoxesList[index];
+                BirdBox birdBox = BirdBox.birdBoxesList[index];
                 return GestureDetector(
                   onTap: () {
                     widget.onSelect!(index + 1);
@@ -52,28 +52,26 @@ class _SelectBirdBoxNoState extends State<SelectBirdBoxNo> {
                           borderRadius: const BorderRadius.all(
                             Radius.circular(60),
                           ),
-                          boxShadow: widget.birdBox != _birdBox.id
+                          boxShadow: widget.birdBox != birdBox.id
                               ? [
                                   const BoxShadow(
                                     color: Colors.grey,
                                     offset: Offset(3.0, 3.0),
                                     blurRadius: 3.0,
-                                  )
+                                  ),
                                 ]
                               : [],
                           border: Border.all(
-                            width: widget.birdBox == _birdBox.id ? 2.0 : 0.0,
-                            color: widget.birdBox == _birdBox.id
+                            width: widget.birdBox == birdBox.id ? 2.0 : 0.0,
+                            color: widget.birdBox == birdBox.id
                                 ? Colors.blueAccent
                                 : Colors.green[50]!,
                           ),
                         ),
                         child: Center(
                           child: Text(
-                            _birdBox.id.toString(),
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                            ),
+                            birdBox.id.toString(),
+                            style: const TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
@@ -92,36 +90,33 @@ class _SelectBirdBoxNoState extends State<SelectBirdBoxNo> {
                     padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: Colors.green[100],
-                      borderRadius: const BorderRadius.all(
-                        Radius.circular(20),
-                      ),
+                      borderRadius: const BorderRadius.all(Radius.circular(20)),
                       boxShadow: const [
                         BoxShadow(
                           color: Colors.grey,
                           offset: Offset(3.0, 3.0),
                           blurRadius: 3.0,
-                        )
+                        ),
                       ],
-                      border: Border.all(
-                        width: 0.0,
-                        color: Colors.blueAccent,
-                      ),
+                      border: Border.all(width: 0.0, color: Colors.blueAccent),
                     ),
                     child: GestureDetector(
                       onTap: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                            builder: (_) => const MapPage(),
-                          ),
+                          MaterialPageRoute(builder: (_) => const MapPage()),
                         );
                       },
                       child: const Text(
-                          'Tap here to see the map of where all the bird boxes are located'),
+                        'Tap here to see the map of where all the bird boxes are located',
+                      ),
                     ),
                   )
-                : Text(BirdBox
-                    .birdBoxesList[widget.birdBox! - 1].locationDescription!),
+                : Text(
+                    BirdBox
+                        .birdBoxesList[widget.birdBox! - 1]
+                        .locationDescription,
+                  ),
           ),
         ),
       ],

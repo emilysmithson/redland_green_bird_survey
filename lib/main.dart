@@ -1,5 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/foundation.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,22 +7,26 @@ import 'firebase_options.dart';
 import 'models/version.dart';
 import 'pages/home_page/home_page.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<void> _initializeFirebase() async {
   try {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
   } on FirebaseException catch (e) {
-    if (kDebugMode) {
-      print(e);
+    if (e.code != 'duplicate-app') {
+      rethrow;
     }
   }
+}
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await _initializeFirebase();
   runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -33,25 +36,31 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(18.0),
-              ),
+            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
             ),
-            backgroundColor: MaterialStateProperty.all(Colors.green[50]),
-            foregroundColor: MaterialStateProperty.all(Colors.black),
+            backgroundColor: WidgetStateProperty.all(Colors.green[50]),
+            foregroundColor: WidgetStateProperty.all(Colors.black),
           ),
         ),
-        appBarTheme:
-            const AppBarTheme(systemOverlayStyle: SystemUiOverlayStyle.light),
+        appBarTheme: const AppBarTheme(
+          systemOverlayStyle: SystemUiOverlayStyle.light,
+        ),
         textTheme: const TextTheme(
-          headline1: TextStyle(
-              fontSize: 16.0, fontWeight: FontWeight.bold, color: Colors.black),
-          headline2: TextStyle(
-              fontSize: 14.0, fontWeight: FontWeight.bold, color: Colors.black),
+          displayLarge: TextStyle(
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+          displayMedium: TextStyle(
+            fontSize: 14.0,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
         ),
       ),
       title: 'Redland Green Bird Survey',
@@ -61,7 +70,7 @@ class _MyAppState extends State<MyApp> {
 }
 
 class InitialPage extends StatefulWidget {
-  const InitialPage({Key? key}) : super(key: key);
+  const InitialPage({super.key});
 
   @override
   _InitialPageState createState() => _InitialPageState();

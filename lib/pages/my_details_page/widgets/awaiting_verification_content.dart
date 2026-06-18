@@ -8,8 +8,7 @@ import '../../../settings.dart';
 
 class AwaitingVerificationContent extends StatefulWidget {
   final MyDetailsController controller;
-  const AwaitingVerificationContent({Key? key, required this.controller})
-      : super(key: key);
+  const AwaitingVerificationContent({super.key, required this.controller});
 
   @override
   _AwaitingVerificationContentState createState() =>
@@ -40,14 +39,14 @@ class _AwaitingVerificationContentState
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('We have sent an email with a verification link to'
-                  '\n\n${user!.email}'
-                  '\n\nPlease tap the link to verify your email address.'),
+              Text(
+                'We have sent an email with a verification link to'
+                '\n\n${user!.email}'
+                '\n\nPlease tap the link to verify your email address.',
+              ),
               const Padding(
                 padding: EdgeInsets.all(24.0),
-                child: CircularProgressIndicator(
-                  strokeWidth: 6,
-                ),
+                child: CircularProgressIndicator(strokeWidth: 6),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -58,7 +57,7 @@ class _AwaitingVerificationContentState
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

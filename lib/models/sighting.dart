@@ -23,34 +23,37 @@ class Sighting {
   static final List<Sighting> observations = [];
   static List<Sighting> sightings = [];
 
-  static void addSighting(Sighting _sighting) {
-    final DatabaseReference reference =
-        FirebaseDatabase.instance.ref().child("observations");
+  static void addSighting(Sighting sighting) {
+    final DatabaseReference reference = FirebaseDatabase.instance.ref().child(
+      "observations",
+    );
     final String newkey = reference.push().key!;
     reference.child(newkey).set({
-      'user': _sighting.user,
-      'date_time': _sighting.dateTime!.toIso8601String(),
-      'bird_box': _sighting.birdBox,
-      'bird': _sighting.bird,
-      'userEmail': _sighting.userEmail,
+      'user': sighting.user,
+      'date_time': sighting.dateTime!.toIso8601String(),
+      'bird_box': sighting.birdBox,
+      'bird': sighting.bird,
+      'userEmail': sighting.userEmail,
     });
   }
 
-  static void updateSighting(Sighting _sighting, String id) {
-    final DatabaseReference reference =
-        FirebaseDatabase.instance.ref().child("observations");
+  static void updateSighting(Sighting sighting, String id) {
+    final DatabaseReference reference = FirebaseDatabase.instance.ref().child(
+      "observations",
+    );
     reference.child(id).update({
-      'user': _sighting.user,
-      'date_time': _sighting.dateTime!.toIso8601String(),
-      'bird_box': _sighting.birdBox,
-      'bird': _sighting.bird,
-      'userEmail': _sighting.userEmail,
+      'user': sighting.user,
+      'date_time': sighting.dateTime!.toIso8601String(),
+      'bird_box': sighting.birdBox,
+      'bird': sighting.bird,
+      'userEmail': sighting.userEmail,
     });
   }
 
   static Future getSightings() async {
-    final DatabaseReference reference =
-        FirebaseDatabase.instance.ref().child("observations");
+    final DatabaseReference reference = FirebaseDatabase.instance.ref().child(
+      "observations",
+    );
     Stream<DatabaseEvent> stream = reference.onValue;
     stream.listen((event) {
       final Map<dynamic, dynamic>? returnedList =

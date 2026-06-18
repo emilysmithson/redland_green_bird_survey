@@ -30,7 +30,7 @@ Widget observationDetails({
               color: Colors.grey,
               offset: Offset(5.0, 5.0),
               blurRadius: 5.0,
-            )
+            ),
           ],
         ),
         padding: showUser
@@ -45,10 +45,8 @@ Widget observationDetails({
                 Navigator.push(
                   context!,
                   MaterialPageRoute(
-                    builder: (context) => BirdFactPage(
-                      bird: bird,
-                      heroKey: heroKey.toString(),
-                    ),
+                    builder: (context) =>
+                        BirdFactPage(bird: bird, heroKey: heroKey.toString()),
                   ),
                 );
               },
@@ -70,10 +68,7 @@ Widget observationDetails({
                               ),
                             ),
                           )
-                        : Image.asset(
-                            bird.images![0].asset,
-                            fit: BoxFit.cover,
-                          ),
+                        : Image.asset(bird.images![0].asset, fit: BoxFit.cover),
                   ),
                 ),
               ),
@@ -95,8 +90,10 @@ Widget observationDetails({
                     ),
                     const SizedBox(height: 4),
                     if (showUser)
-                      Text('Observed by: ${sighting.user}',
-                          style: const TextStyle(fontWeight: FontWeight.bold))
+                      Text(
+                        'Observed by: ${sighting.user}',
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
                   ],
                 ),
               ),
@@ -108,25 +105,26 @@ Widget observationDetails({
                     context!,
                     MaterialPageRoute(
                       builder: (context) => BirdBoxPage(
-                          birdBox:
-                              BirdBox.birdBoxesList[sighting.birdBox! - 1]),
+                        birdBox: BirdBox.birdBoxesList[sighting.birdBox! - 1],
+                      ),
                     ),
                   );
                 },
                 child: ClipOval(
                   child: Container(
-                      color: Colors.green[100],
-                      height: 70,
-                      width: 70,
-                      child: Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: Center(
-                          child: Text(
-                            'Box no:\n${sighting.birdBox}',
-                            textAlign: TextAlign.center,
-                          ),
+                    color: Colors.green[100],
+                    height: 70,
+                    width: 70,
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Center(
+                        child: Text(
+                          'Box no:\n${sighting.birdBox}',
+                          textAlign: TextAlign.center,
                         ),
-                      )),
+                      ),
+                    ),
+                  ),
                 ),
               ),
           ],
@@ -140,16 +138,11 @@ Widget observationDetails({
               Navigator.push(
                 context!,
                 MaterialPageRoute(
-                  builder: (_) => EnterObservationsPage(
-                    sighting: sighting,
-                  ),
+                  builder: (_) => EnterObservationsPage(sighting: sighting),
                 ),
               );
             },
-            icon: const Icon(
-              Icons.edit,
-              color: Colors.grey,
-            ),
+            icon: const Icon(Icons.edit, color: Colors.grey),
           ),
         ),
       if (!showUser)
@@ -163,16 +156,20 @@ Widget observationDetails({
                 builder: (BuildContext context) {
                   return AlertDialog(
                     title: const Text(
-                        'Are you sure you want to delete this observation?'),
+                      'Are you sure you want to delete this observation?',
+                    ),
                     actions: [
                       ElevatedButton(
                         onPressed: () async {
+                          final NavigatorState navigator = Navigator.of(
+                            context,
+                          );
                           final DatabaseReference reference = FirebaseDatabase
                               .instance
                               .ref()
                               .child("observations");
                           await reference.child(sighting.id!).remove();
-                          Navigator.pop(context);
+                          navigator.pop();
                           await Sighting.getSightings();
                           setState!();
                         },
@@ -189,10 +186,7 @@ Widget observationDetails({
                 },
               );
             },
-            icon: const Icon(
-              Icons.delete,
-              color: Colors.grey,
-            ),
+            icon: const Icon(Icons.delete, color: Colors.grey),
           ),
         ),
     ],

@@ -8,8 +8,7 @@ import '../my_details_controller.dart';
 
 class AuthenticatedContent extends StatefulWidget {
   final MyDetailsController controller;
-  const AuthenticatedContent({Key? key, required this.controller})
-      : super(key: key);
+  const AuthenticatedContent({super.key, required this.controller});
 
   @override
   State<AuthenticatedContent> createState() => _AuthenticatedContentState();
@@ -20,32 +19,34 @@ class _AuthenticatedContentState extends State<AuthenticatedContent> {
   @override
   Widget build(BuildContext context) {
     _sightingList = Sighting.observations
-        .where((sighting) =>
-            sighting.userEmail == FirebaseAuth.instance.currentUser!.email)
+        .where(
+          (sighting) =>
+              sighting.userEmail == FirebaseAuth.instance.currentUser!.email,
+        )
         .toList();
     return Column(
       children: [
         const SizedBox(height: 16),
-        Text('Email: ${FirebaseAuth.instance.currentUser!.email}',
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+        Text(
+          'Email: ${FirebaseAuth.instance.currentUser!.email}',
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Nickname: ${FirebaseAuth.instance.currentUser!.displayName}',
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+            Text(
+              'Nickname: ${FirebaseAuth.instance.currentUser!.displayName}',
+              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+            ),
             IconButton(
-              icon: const Icon(
-                Icons.edit,
-                size: 20,
-                color: Colors.grey,
-              ),
+              icon: const Icon(Icons.edit, size: 20, color: Colors.grey),
               onPressed: () {
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
                     TextEditingController controller = TextEditingController(
-                        text: FirebaseAuth.instance.currentUser!.displayName);
+                      text: FirebaseAuth.instance.currentUser!.displayName,
+                    );
                     return AlertDialog(
                       title: const Text('Change your nickname'),
                       content: Padding(
@@ -60,6 +61,9 @@ class _AuthenticatedContentState extends State<AuthenticatedContent> {
                           onPressed: () async {
                             await FirebaseAuth.instance.currentUser!
                                 .updateDisplayName(controller.value.text);
+                            if (!context.mounted) {
+                              return;
+                            }
                             Navigator.pop(context);
                           },
                           child: const Text('Ok'),
@@ -114,13 +118,14 @@ class _AuthenticatedContentState extends State<AuthenticatedContent> {
             : Column(
                 children: _sightingList.map((Sighting sighting) {
                   return observationDetails(
-                      sighting: sighting,
-                      context: context,
-                      showBoxNo: true,
-                      showUser: false,
-                      setState: () {
-                        setState(() {});
-                      });
+                    sighting: sighting,
+                    context: context,
+                    showBoxNo: true,
+                    showUser: false,
+                    setState: () {
+                      setState(() {});
+                    },
+                  );
                 }).toList(),
               ),
         const SizedBox(height: 60),
@@ -130,12 +135,7 @@ class _AuthenticatedContentState extends State<AuthenticatedContent> {
 
             widget.controller.content.value = MyDetailsView.unauthenticated;
           },
-          child: const Text(
-            'Logout',
-            style: TextStyle(
-              color: Colors.red,
-            ),
-          ),
+          child: const Text('Logout', style: TextStyle(color: Colors.red)),
         ),
       ],
     );
