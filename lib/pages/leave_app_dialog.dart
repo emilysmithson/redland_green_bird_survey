@@ -144,14 +144,7 @@ class _LeaveAppDialogState extends State<_LeaveAppDialog> {
           },
           child: const Text('Cancel'),
         ),
-        FilledButton(
-          style: FilledButton.styleFrom(
-            backgroundColor: Colors.green[100],
-            foregroundColor: Colors.white,
-          ),
-          onPressed: _onContinue,
-          child: const Text('Continue'),
-        ),
+        FilledButton(onPressed: _onContinue, child: const Text('Continue')),
       ],
     );
   }

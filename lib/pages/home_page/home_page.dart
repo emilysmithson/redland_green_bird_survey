@@ -5,9 +5,9 @@ import '../../models/sighting.dart';
 import '../../widgets/page_template.dart';
 import '../bird_box_list_page/bird_box_list_page.dart';
 import '../bird_identifier_page/bird_identifier_page.dart';
+import '../did_you_know_page/did_you_know.dart';
 import '../enter_observations_page/enter_observations_page.dart';
 import '../information_page/information_page.dart';
-import '../did_you_know_page/did_you_know.dart';
 import '../latest_observations_page.dart';
 import '../map_page.dart';
 import '../my_details_page/my_details_page.dart';
@@ -49,6 +49,7 @@ class _HomePageState extends State<HomePage> {
         setState(() {});
       },
       child: Scaffold(
+        
         body: PageTemplate(
           title: 'Redland Green Bird Box Survey',
           image: 'assets/robin1.png',

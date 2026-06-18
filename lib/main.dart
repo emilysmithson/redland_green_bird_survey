@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'firebase_options.dart';
 import 'models/version.dart';
 import 'pages/home_page/home_page.dart';
+import 'settings.dart';
 
 Future<void> _initializeFirebase() async {
   try {
@@ -37,6 +38,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: appBackgroundColor,
         filledButtonTheme: FilledButtonThemeData(
           style: ButtonStyle(
             shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -79,8 +81,8 @@ class InitialPage extends StatefulWidget {
 class _InitialPageState extends State<InitialPage> {
   @override
   void initState() {
-    Version.checkVersion(context);
     super.initState();
+    Version.checkVersion(context);
   }
 
   @override

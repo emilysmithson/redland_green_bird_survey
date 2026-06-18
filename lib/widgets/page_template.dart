@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../settings.dart';
+
 class PageTemplate extends StatelessWidget {
   final String title;
   final String image;
@@ -22,11 +24,11 @@ class PageTemplate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green[100],
+      backgroundColor: appBackgroundColor,
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            backgroundColor: Colors.green[100],
+            backgroundColor: appBackgroundColor,
             expandedHeight: MediaQuery.of(context).size.height * 0.25,
             flexibleSpace: FlexibleSpaceBar(
               titlePadding: const EdgeInsets.all(0),
@@ -95,6 +97,9 @@ class PageTemplate extends StatelessWidget {
                 return gridList![index];
               }, childCount: gridList!.length),
             ),
+          SliverToBoxAdapter(
+            child: SizedBox(height: MediaQuery.of(context).padding.bottom),
+          ),
         ],
       ),
     );
