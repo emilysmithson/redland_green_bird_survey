@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class RGGridTile extends StatelessWidget {
+class RGGridTile extends StatefulWidget {
   final String? text;
   final String? imageAsset;
   final Widget? navigateTo;
@@ -8,25 +8,38 @@ class RGGridTile extends StatelessWidget {
   final Function? setState;
 
   const RGGridTile({
-    Key? key,
+    super.key,
     this.text,
     this.imageAsset,
     this.navigateTo,
     this.heroTag,
     this.setState,
-  }) : super(key: key);
+  });
 
+  @override
+  State<RGGridTile> createState() => _RGGridTileState();
+}
+
+class _RGGridTileState extends State<RGGridTile> {
+  bool pressed = false;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
+      onTap: () async {
+        setState(() {
+          pressed = true;
+        });
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => navigateTo!),
+          MaterialPageRoute(builder: (context) => widget.navigateTo!),
         );
+        await Future.delayed(const Duration(seconds: 1));
+        setState(() {
+          pressed = false;
+        });
       },
       child: Hero(
-        tag: heroTag!,
+        tag: widget.heroTag!,
         child: Material(
           color: Colors.green[100],
           child: Container(
@@ -38,17 +51,17 @@ class RGGridTile extends StatelessWidget {
               borderRadius: const BorderRadius.all(Radius.circular(20)),
               image: DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage(
-                  imageAsset!,
-                ),
+                image: AssetImage(widget.imageAsset!),
               ),
-              boxShadow: const [
-                BoxShadow(
-                  color: Colors.grey,
-                  offset: Offset(5.0, 5.0),
-                  blurRadius: 5.0,
-                )
-              ],
+              boxShadow: pressed
+                  ? []
+                  : const [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(5.0, 5.0),
+                        blurRadius: 5.0,
+                      ),
+                    ],
             ),
             child: Align(
               alignment: Alignment.bottomCenter,
@@ -64,7 +77,7 @@ class RGGridTile extends StatelessWidget {
                 width: double.infinity,
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
-                  text!,
+                  widget.text!,
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontWeight: FontWeight.bold),
                 ),

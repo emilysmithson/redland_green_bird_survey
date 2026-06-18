@@ -16,7 +16,7 @@ Widget observationSummary(Sighting sighting, BuildContext context) {
               Bird.birdsList
                   .firstWhere((bird) => sighting.bird == bird.id)
                   .name!,
-              style: Theme.of(context).textTheme.headline2,
+              style: Theme.of(context).textTheme.displayMedium,
             ),
             Text(
               '${DateFormat('d MMM yyyy').format(sighting.dateTime!)}  ${DateFormat.jm().format(sighting.dateTime!)}',
@@ -30,12 +30,8 @@ Widget observationSummary(Sighting sighting, BuildContext context) {
             color: Colors.green[100],
             borderRadius: BorderRadius.circular(100),
           ),
-          child: Center(
-            child: Text(
-              sighting.birdBox.toString(),
-            ),
-          ),
-        )
+          child: Center(child: Text(sighting.birdBox.toString())),
+        ),
       ],
     ),
   );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:redland_green_bird_survey/models/birds.dart';
 
-Widget selectBird(int _bird, Function onSelect) {
+Widget selectBird(int bird, Function onSelect) {
   List<Bird> birdList = Bird.birdsList
       .where((bird) => bird.birdType == BirdType.nesting)
       .toList();
@@ -26,29 +26,29 @@ Widget selectBird(int _bird, Function onSelect) {
             decoration: BoxDecoration(
               color: Colors.green[50],
               border: Border.all(
-                width: _bird == birdList[index].id ? 3.0 : 0.0,
+                width: bird == birdList[index].id ? 3.0 : 0.0,
                 color: Colors.blueAccent,
               ),
-              boxShadow: _bird == birdList[index].id
+              boxShadow: bird == birdList[index].id
                   ? []
                   : [
                       const BoxShadow(
                         color: Colors.grey,
                         offset: Offset(3.0, 3.0),
                         blurRadius: 3.0,
-                      )
+                      ),
                     ],
-              borderRadius: const BorderRadius.all(
-                Radius.circular(10),
-              ),
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
               image: DecorationImage(
                 colorFilter: birdList[index].images!.isEmpty
                     ? const ColorFilter.mode(Colors.grey, BlendMode.clear)
                     : const ColorFilter.mode(Colors.white, BlendMode.colorBurn),
                 fit: BoxFit.fill,
-                image: AssetImage(birdList[index].images!.isEmpty
-                    ? 'assets/bluetit1.png'
-                    : birdList[index].images![0].asset),
+                image: AssetImage(
+                  birdList[index].images!.isEmpty
+                      ? 'assets/bluetit1.png'
+                      : birdList[index].images![0].asset,
+                ),
               ),
             ),
             child: Stack(
@@ -57,36 +57,42 @@ Widget selectBird(int _bird, Function onSelect) {
                   const Center(
                     child: Padding(
                       padding: EdgeInsets.only(
-                          top: 2.0, left: 2.0, bottom: 20, right: 2),
+                        top: 2.0,
+                        left: 2.0,
+                        bottom: 20,
+                        right: 2,
+                      ),
                       child: Text(
                         'I saw a bird use the bird box but it was not one listed here.',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
-                        ),
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ),
                   ),
                 if (birdList[index] == Bird.unidentified)
                   const Padding(
                     padding: EdgeInsets.only(
-                        top: 2.0, left: 2.0, bottom: 20, right: 2),
+                      top: 2.0,
+                      left: 2.0,
+                      bottom: 20,
+                      right: 2,
+                    ),
                     child: Center(
                       child: Text(
                         'I saw a bird use the bird box but I could not tell what it was.',
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
-                        ),
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
                       ),
                     ),
                   ),
                 if (birdList[index] == Bird.none)
                   const Padding(
                     padding: EdgeInsets.only(
-                        top: 2.0, left: 2.0, bottom: 20, right: 2),
+                      top: 2.0,
+                      left: 2.0,
+                      bottom: 20,
+                      right: 2,
+                    ),
                     child: Center(
                       child: Text(
                         'I waited for 5 minutes but I did not see a bird use the box.',

@@ -11,12 +11,12 @@ class QuizFlipCardWidget extends StatefulWidget {
   final Function onTap;
 
   const QuizFlipCardWidget({
-    Key? key,
+    super.key,
     required this.image,
     required this.correct,
     required this.answer,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   @override
   _QuizFlipCardWidgetState createState() => _QuizFlipCardWidgetState();
@@ -35,9 +35,8 @@ class _QuizFlipCardWidgetState extends State<QuizFlipCardWidget>
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
-    _animation = Tween<double>(end: 1, begin: 0).animate(
-      _animationController,
-    )..addListener(() {
+    _animation = Tween<double>(end: 1, begin: 0).animate(_animationController)
+      ..addListener(() {
         setState(() {});
       });
 
@@ -51,16 +50,11 @@ class _QuizFlipCardWidgetState extends State<QuizFlipCardWidget>
         decoration: defaultBoxDecoration(),
         child: (_animation.value < 0.5)
             ? ClipRRect(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(20),
-                ),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 child: SizedBox(
                   width: double.infinity,
                   height: double.infinity,
-                  child: Image.asset(
-                    widget.image,
-                    fit: BoxFit.cover,
-                  ),
+                  child: Image.asset(widget.image, fit: BoxFit.cover),
                 ),
               )
             : Container(
@@ -68,9 +62,7 @@ class _QuizFlipCardWidgetState extends State<QuizFlipCardWidget>
                 height: double.infinity,
                 decoration: BoxDecoration(
                   color: Colors.green[50],
-                  borderRadius: const BorderRadius.all(
-                    Radius.circular(20),
-                  ),
+                  borderRadius: const BorderRadius.all(Radius.circular(20)),
                 ),
                 child: Center(
                   child: Padding(
@@ -87,9 +79,7 @@ class _QuizFlipCardWidgetState extends State<QuizFlipCardWidget>
                               widget.correct
                                   ? const Icon(Icons.check, color: Colors.green)
                                   : const Icon(Icons.close, color: Colors.red),
-                              const SizedBox(
-                                width: 8,
-                              ),
+                              const SizedBox(width: 8),
                               Flexible(
                                 child: Text(
                                   widget.correct
@@ -121,9 +111,10 @@ class _QuizFlipCardWidgetState extends State<QuizFlipCardWidget>
         widget.onTap(widget.correct);
       },
       child: Transform(
-          transform: Matrix4.identity()..rotateY(pi * _animation.value),
-          alignment: FractionalOffset.center,
-          child: _widget()),
+        transform: Matrix4.identity()..rotateY(pi * _animation.value),
+        alignment: FractionalOffset.center,
+        child: _widget(),
+      ),
     );
   }
 

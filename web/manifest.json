@@ -18,7 +18,6 @@
             "src": "icons/Icon-512.png",
             "sizes": "512x512",
             "type": "image/png"
-<<<<<<< HEAD
         },
         {
             "src": "icons/Icon-maskable-192.png",
@@ -31,8 +30,6 @@
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
-=======
->>>>>>> f7145220ac30b24f80f91788e75572acd6fb1111
         }
     ]
 }

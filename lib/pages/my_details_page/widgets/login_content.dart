@@ -5,10 +5,7 @@ import '../my_details_controller.dart';
 
 class LoginContent extends StatefulWidget {
   final MyDetailsController controller;
-  const LoginContent({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
+  const LoginContent({super.key, required this.controller});
 
   @override
   _LoginContentState createState() => _LoginContentState();
@@ -35,10 +32,7 @@ class _LoginContentState extends State<LoginContent> {
             children: [
               const Text('Enter your email address'),
               const SizedBox(height: 8),
-              Text(
-                emailErrorMsg,
-                style: const TextStyle(color: Colors.red),
-              ),
+              Text(emailErrorMsg, style: const TextStyle(color: Colors.red)),
               Container(
                 margin: const EdgeInsets.all(8),
                 padding: const EdgeInsets.all(8),
@@ -49,7 +43,7 @@ class _LoginContentState extends State<LoginContent> {
                       color: Colors.grey,
                       offset: Offset(5.0, 5.0),
                       blurRadius: 5.0,
-                    )
+                    ),
                   ],
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
@@ -67,10 +61,7 @@ class _LoginContentState extends State<LoginContent> {
               ),
               const SizedBox(height: 20),
               const Text('Enter your password'),
-              Text(
-                passwordErrorMsg,
-                style: const TextStyle(color: Colors.red),
-              ),
+              Text(passwordErrorMsg, style: const TextStyle(color: Colors.red)),
               Container(
                 margin: const EdgeInsets.all(8),
                 padding: const EdgeInsets.all(8),
@@ -81,7 +72,7 @@ class _LoginContentState extends State<LoginContent> {
                       color: Colors.grey,
                       offset: Offset(5.0, 5.0),
                       blurRadius: 5.0,
-                    )
+                    ),
                   ],
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
@@ -97,10 +88,7 @@ class _LoginContentState extends State<LoginContent> {
                   ),
                 ),
               ),
-              Text(
-                errorMsg!,
-                style: const TextStyle(color: Colors.red),
-              ),
+              Text(errorMsg!, style: const TextStyle(color: Colors.red)),
               Align(
                 alignment: Alignment.centerRight,
                 child: SizedBox(
@@ -112,8 +100,8 @@ class _LoginContentState extends State<LoginContent> {
                       });
                       final String email = emailController.value.text;
                       if (RegExp(
-                              r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                          .hasMatch(email)) {
+                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                      ).hasMatch(email)) {
                         setState(() {
                           isLoading = false;
                           emailErrorMsg = '';
@@ -136,17 +124,25 @@ class _LoginContentState extends State<LoginContent> {
                         passwordErrorMsg = '';
                       }
 
-                      final FirebaseAuth _auth = FirebaseAuth.instance;
-                      await _auth
-                          .signInWithEmailAndPassword(
-                              email: emailController.value.text,
-                              password: passwordController.value.text)
-                          .catchError((error, stacktrace) {
+                      final FirebaseAuth auth = FirebaseAuth.instance;
+                      try {
+                        await auth.signInWithEmailAndPassword(
+                          email: emailController.value.text,
+                          password: passwordController.value.text,
+                        );
+                      } on FirebaseAuthException catch (error) {
+                        if (!mounted) {
+                          return;
+                        }
                         setState(() {
                           isLoading = false;
                           errorMsg = error.message;
                         });
-                      });
+                        return;
+                      }
+                      if (!context.mounted) {
+                        return;
+                      }
                       widget.controller.content.value =
                           MyDetailsView.authenticated;
                     },
@@ -161,17 +157,19 @@ class _LoginContentState extends State<LoginContent> {
                 child: SizedBox(
                   width: 200,
                   child: OutlinedButton(
-                    onPressed: () {
+                    onPressed: () async {
+                      final BuildContext dialogContext = context;
                       FirebaseAuth.instance.signOut();
                       setState(() {
                         emailErrorMsg = '';
                       });
 
-                      final FirebaseAuth _auth = FirebaseAuth.instance;
-                      _auth
-                          .sendPasswordResetEmail(
-                              email: emailController.value.text)
-                          .catchError((error) {
+                      final FirebaseAuth auth = FirebaseAuth.instance;
+                      try {
+                        await auth.sendPasswordResetEmail(
+                          email: emailController.value.text,
+                        );
+                      } on FirebaseAuthException catch (error) {
                         if (error.toString() ==
                             '[firebase_auth/user-not-found] There is no user record corresponding to this identifier. The user may have been deleted.') {
                           setState(() {
@@ -186,16 +184,22 @@ class _LoginContentState extends State<LoginContent> {
                             return;
                           });
                         }
-                      });
+                        return;
+                      }
+                      if (!dialogContext.mounted) {
+                        return;
+                      }
                       showDialog(
-                        context: context,
+                        context: dialogContext,
                         builder: (BuildContext context) {
                           return AlertDialog(
                             title: const Text(
-                                "Please check your email for a password reset message"),
+                              "Please check your email for a password reset message",
+                            ),
                             content: const Text(
-                                "Once you have reset your password you should be able to log in here."
-                                "\n\nBe sure to check your junk mail."),
+                              "Once you have reset your password you should be able to log in here."
+                              "\n\nBe sure to check your junk mail.",
+                            ),
                             actions: [
                               ElevatedButton(
                                 onPressed: () {
@@ -208,8 +212,10 @@ class _LoginContentState extends State<LoginContent> {
                         },
                       );
                     },
-                    child: const Text('Forgotten Password?',
-                        style: TextStyle(color: Colors.grey)),
+                    child: const Text(
+                      'Forgotten Password?',
+                      style: TextStyle(color: Colors.grey),
+                    ),
                   ),
                 ),
               ),

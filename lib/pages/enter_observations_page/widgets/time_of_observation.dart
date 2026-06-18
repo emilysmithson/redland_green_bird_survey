@@ -5,9 +5,12 @@ class TimeOfObservation extends StatelessWidget {
   final Function? onSelected;
   final DateTime? maxDate;
 
-  const TimeOfObservation(
-      {Key? key, this.dateTime, this.onSelected, this.maxDate})
-      : super(key: key);
+  const TimeOfObservation({
+    super.key,
+    this.dateTime,
+    this.onSelected,
+    this.maxDate,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +19,7 @@ class TimeOfObservation extends StatelessWidget {
       child: CupertinoTheme(
         data: const CupertinoThemeData(
           textTheme: CupertinoTextThemeData(
-            dateTimePickerTextStyle: TextStyle(
-              fontSize: 18,
-            ),
+            dateTimePickerTextStyle: TextStyle(fontSize: 18),
           ),
         ),
         child: CupertinoDatePicker(

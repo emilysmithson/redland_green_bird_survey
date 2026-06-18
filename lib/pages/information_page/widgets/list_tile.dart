@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-Widget listTile(
-    {Function? onTap,
-    required bool imageLeft,
-    String? imageAsset,
-    required List<Widget> content,
-    int? photoRatio}) {
+Widget listTile({
+  Function? onTap,
+  required bool imageLeft,
+  String? imageAsset,
+  required List<Widget> content,
+  int? photoRatio,
+}) {
   return GestureDetector(
     onTap: () {
       onTap!();
@@ -14,15 +15,13 @@ Widget listTile(
       margin: const EdgeInsets.symmetric(vertical: 8),
       height: 200,
       decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(
-          Radius.circular(20.0),
-        ),
+        borderRadius: BorderRadius.all(Radius.circular(20.0)),
         boxShadow: [
           BoxShadow(
             color: Colors.grey,
             offset: Offset(5.0, 5.0),
             blurRadius: 5.0,
-          )
+          ),
         ],
       ),
       child: Row(
@@ -37,9 +36,7 @@ Widget listTile(
                   ),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage(
-                      imageAsset!,
-                    ),
+                    image: AssetImage(imageAsset!),
                   ),
                 ),
               ),
@@ -78,9 +75,7 @@ Widget listTile(
                   ),
                   image: DecorationImage(
                     fit: BoxFit.cover,
-                    image: AssetImage(
-                      imageAsset!,
-                    ),
+                    image: AssetImage(imageAsset!),
                   ),
                 ),
               ),

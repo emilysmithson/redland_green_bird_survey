@@ -6,7 +6,7 @@ import 'package:redland_green_bird_survey/pages/home_page/widgets/rg_grid_tile.d
 import 'bird_fact_page.dart';
 
 class BirdIdentifierScreen extends StatefulWidget {
-  const BirdIdentifierScreen({Key? key}) : super(key: key);
+  const BirdIdentifierScreen({super.key});
 
   @override
   _BirdIdentifierScreenState createState() => _BirdIdentifierScreenState();
@@ -16,10 +16,12 @@ class _BirdIdentifierScreenState extends State<BirdIdentifierScreen> {
   @override
   Widget build(BuildContext context) {
     List<Bird> birdList = Bird.birdsList
-        .where((bird) =>
-            bird.birdType == BirdType.nesting ||
-            bird.birdType == BirdType.predator ||
-            bird.birdType == BirdType.other)
+        .where(
+          (bird) =>
+              bird.birdType == BirdType.nesting ||
+              bird.birdType == BirdType.predator ||
+              bird.birdType == BirdType.other,
+        )
         .toList();
 
     return PageTemplate(

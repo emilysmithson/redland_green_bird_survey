@@ -4,3 +4,12 @@
 #  rules:
 #    omit_local_variable_types: false
 include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  exclude:
+    - build/**
+    - lib/generated_plugin_registrant.dart
+
+linter:
+  rules:
+    library_private_types_in_public_api: false

@@ -39,3 +39,6 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+# Local secrets (copy from lib/config/app_secrets.example.dart)
+lib/config/app_secrets.dart

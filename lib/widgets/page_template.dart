@@ -9,16 +9,16 @@ class PageTemplate extends StatelessWidget {
   final double? size;
   final List<Widget>? listTileList;
 
-  const PageTemplate(
-      {Key? key,
-      required this.title,
-      required this.image,
-      this.widgetList,
-      this.gridList,
-      this.heroTag,
-      this.size,
-      this.listTileList})
-      : super(key: key);
+  const PageTemplate({
+    super.key,
+    required this.title,
+    required this.image,
+    this.widgetList,
+    this.gridList,
+    this.heroTag,
+    this.size,
+    this.listTileList,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,9 +33,7 @@ class PageTemplate extends StatelessWidget {
               title: Align(
                 alignment: Alignment.bottomCenter,
                 child: ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    maxWidth: double.infinity,
-                  ),
+                  constraints: const BoxConstraints(maxWidth: double.infinity),
                   child: FittedBox(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 2.0),
@@ -56,10 +54,7 @@ class PageTemplate extends StatelessWidget {
                 tag: heroTag!,
                 child: Image.asset(
                   image,
-                  alignment: const Alignment(
-                    0,
-                    -1 / 2,
-                  ),
+                  alignment: const Alignment(0, -1 / 2),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -67,12 +62,12 @@ class PageTemplate extends StatelessWidget {
           ),
           if (widgetList != null)
             SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (BuildContext context, int index) {
-                  return widgetList![index];
-                },
-                childCount: widgetList!.length,
-              ),
+              delegate: SliverChildBuilderDelegate((
+                BuildContext context,
+                int index,
+              ) {
+                return widgetList![index];
+              }, childCount: widgetList!.length),
             ), // Re-implementing the above SliverGrid.count example:
           if (listTileList != null)
             SliverGrid(
@@ -80,8 +75,10 @@ class PageTemplate extends StatelessWidget {
                 maxCrossAxisExtent: 600,
                 childAspectRatio: 1.8,
               ),
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
+              delegate: SliverChildBuilderDelegate((
+                BuildContext context,
+                int index,
+              ) {
                 return listTileList![index];
               }, childCount: listTileList!.length),
             ),
@@ -91,8 +88,10 @@ class PageTemplate extends StatelessWidget {
                 childAspectRatio: 1,
                 maxCrossAxisExtent: size ?? 300,
               ),
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, int index) {
+              delegate: SliverChildBuilderDelegate((
+                BuildContext context,
+                int index,
+              ) {
                 return gridList![index];
               }, childCount: gridList!.length),
             ),

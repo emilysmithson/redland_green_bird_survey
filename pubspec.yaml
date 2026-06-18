@@ -15,52 +15,30 @@ publish_to: "none" # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.1.0+8
+version: 1.1.1+9
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=3.9.0 <4.0.0"
 
 dependencies:
-  animations: ^2.0.2
-  cupertino_icons: ^1.0.4
-  firebase_auth: ^3.3.4
-  firebase_core: ^1.10.6
-  firebase_database: ^9.0.4
+  animations: 2.2.0
+  cupertino_icons: 1.0.9
+  equatable: 2.0.8
+  firebase_auth: 6.5.3
+  firebase_core: 4.11.0
+  firebase_database: 12.4.3
   flutter:
     sdk: flutter
-<<<<<<< HEAD
-  flutter_lints: ^1.0.4
-  flutter_map: ^0.14.0
-  flutter_map_location_marker: ^2.0.0
-  flutter_map_marker_cluster: ^0.4.4
-  flutter_map_marker_popup: ^2.0.1
-  intl: ^0.17.0
-  jiffy: ^5.0.0
-  latlong2: ^0.8.1
-  shared_preferences: ^2.0.11
-  transparent_image: ^2.0.0
-  url_launcher: ^6.0.17
-=======
-
-
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.4
-  intl: ^0.17.0
-  firebase_core: ^1.10.6
-  firebase_database: ^9.0.4
-  firebase_auth: ^3.3.4
-  url_launcher: ^6.0.17
-  animations: ^2.0.2
-  shared_preferences: ^2.0.11
-  jiffy: ^5.0.0
-  transparent_image: ^2.0.0
-  flutter_map: ^0.14.0
-  flutter_map_marker_popup: ^2.0.1
-  flutter_map_marker_cluster: ^0.4.4
-  latlong2: ^0.8.1
-  flutter_map_location_marker: ^2.0.0
->>>>>>> f7145220ac30b24f80f91788e75572acd6fb1111
+  flutter_map: 8.3.0
+  flutter_map_marker_cluster: 8.2.2
+  geolocator: 14.0.3
+  flutter_map_marker_popup: 8.1.1
+  intl: 0.20.2
+  jiffy: 6.4.5
+  latlong2: 0.9.1
+  shared_preferences: 2.5.5
+  transparent_image: 2.0.1
+  url_launcher: 6.3.2
 # dev_dependencies:
 #  flutter_test:
 #    sdk: flutter
@@ -78,4 +56,6 @@ flutter:
     - assets/
     - assets/bird_boxes/
 dev_dependencies:
-  lints: ^1.0.1
+  flutter_lints: 6.0.0
+  flutter_test:
+    sdk: flutter

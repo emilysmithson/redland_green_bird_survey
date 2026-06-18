@@ -7,7 +7,7 @@ class BirdFactPage extends StatefulWidget {
   final Bird? bird;
   final String? heroKey;
 
-  const BirdFactPage({Key? key, this.bird, this.heroKey}) : super(key: key);
+  const BirdFactPage({super.key, this.bird, this.heroKey});
 
   @override
   _BirdFactPageState createState() => _BirdFactPageState();
@@ -28,20 +28,17 @@ class _BirdFactPageState extends State<BirdFactPage> {
             });
           },
           child: Container(
-              margin: const EdgeInsets.all(2),
-              height: 80,
-              width: 80,
-              decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10),
-                ),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                    widget.bird!.images![i].asset,
-                  ),
-                ),
-              )),
+            margin: const EdgeInsets.all(2),
+            height: 80,
+            width: 80,
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(widget.bird!.images![i].asset),
+              ),
+            ),
+          ),
         ),
       );
     }
@@ -79,23 +76,27 @@ class _BirdFactPageState extends State<BirdFactPage> {
                         child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Container(
-                              decoration: const BoxDecoration(
-                                color: Colors.white30,
-                                borderRadius: BorderRadius.only(
-                                    bottomLeft: Radius.circular(20),
-                                    bottomRight: Radius.circular(20)),
+                            decoration: const BoxDecoration(
+                              color: Colors.white30,
+                              borderRadius: BorderRadius.only(
+                                bottomLeft: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
                               ),
-                              width: double.infinity,
-                              height: 60,
-                              child: Center(
-                                child: FittedBox(
-                                  child: Text(widget.bird!.name!,
-                                      style: const TextStyle(
-                                        fontSize: 32,
-                                        fontWeight: FontWeight.bold,
-                                      )),
+                            ),
+                            width: double.infinity,
+                            height: 60,
+                            child: Center(
+                              child: FittedBox(
+                                child: Text(
+                                  widget.bird!.name!,
+                                  style: const TextStyle(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              )),
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -108,8 +109,9 @@ class _BirdFactPageState extends State<BirdFactPage> {
                       SizedBox(
                         height: 80,
                         child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: photoList),
+                          scrollDirection: Axis.horizontal,
+                          children: photoList,
+                        ),
                       ),
                       const SizedBox(height: 8),
                       Stack(
@@ -118,59 +120,77 @@ class _BirdFactPageState extends State<BirdFactPage> {
                           Container(
                             margin: const EdgeInsets.all(16.0),
                             padding: const EdgeInsets.all(8.0),
-                            decoration:
-                                defaultBoxDecoration(color: Colors.green[50]),
+                            decoration: defaultBoxDecoration(
+                              color: Colors.green[50],
+                            ),
                             child: Column(
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Row(children: [
-                                    Text('Conservation status: ',
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Conservation status: ',
+                                        style: Theme.of(
+                                          context,
+                                        ).textTheme.displayMedium,
+                                      ),
+                                      Text(
+                                        widget.bird!.conservationStatus ?? '',
                                         style: Theme.of(context)
                                             .textTheme
-                                            .headline2),
-                                    Text(
-                                      widget.bird!.conservationStatus ?? '',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .headline2!
-                                          .copyWith(
-                                            color: widget.bird!
-                                                        .conservationStatus ==
-                                                    'Green'
-                                                ? Colors.green
-                                                : widget.bird!
+                                            .displayMedium!
+                                            .copyWith(
+                                              color:
+                                                  widget
+                                                          .bird!
+                                                          .conservationStatus ==
+                                                      'Green'
+                                                  ? Colors.green
+                                                  : widget
+                                                            .bird!
                                                             .conservationStatus ==
                                                         'Amber'
-                                                    ? Colors.amber
-                                                    : Colors.red,
-                                          ),
-                                    ),
-                                  ]),
+                                                  ? Colors.amber
+                                                  : Colors.red,
+                                            ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Row(children: [
-                                    Text('Scientific Name: ',
-                                        style: Theme.of(context)
-                                            .textTheme
-                                            .headline2),
-                                    Text(widget.bird!.scientificName ?? '')
-                                  ]),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        'Scientific Name: ',
+                                        style: Theme.of(
+                                          context,
+                                        ).textTheme.displayMedium,
+                                      ),
+                                      Text(widget.bird!.scientificName ?? ''),
+                                    ],
+                                  ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.all(8.0),
-                                  child: Row(children: [
-                                    Expanded(
-                                      child: Text('Bird Family: ',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline2),
-                                    ),
-                                    Expanded(
-                                        child:
-                                            Text(widget.bird!.birdFamily ?? ''))
-                                  ]),
+                                  child: Row(
+                                    children: [
+                                      Expanded(
+                                        child: Text(
+                                          'Bird Family: ',
+                                          style: Theme.of(
+                                            context,
+                                          ).textTheme.displayMedium,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: Text(
+                                          widget.bird!.birdFamily ?? '',
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 if (widget.bird!.birdType == BirdType.nesting)
                                   const Padding(
@@ -183,13 +203,15 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                   const Padding(
                                     padding: EdgeInsets.all(8.0),
                                     child: Text(
-                                        'This species might be seen on the green, but is not one of the species that will use a nest box'),
+                                      'This species might be seen on the green, but is not one of the species that will use a nest box',
+                                    ),
                                   ),
                                 if (widget.bird!.birdType == BirdType.predator)
                                   const Padding(
                                     padding: EdgeInsets.all(8.0),
                                     child: Text(
-                                        'This species is a potential predator of eggs or young birds in the bird boxes.'),
+                                      'This species is a potential predator of eggs or young birds in the bird boxes.',
+                                    ),
                                   ),
                               ],
                             ),
@@ -208,13 +230,15 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                         runSpacing: 10,
                                         children: [
                                           const Text(
-                                              'The conservation list puts birds and other UK animals into 3 categories:'),
+                                            'The conservation list puts birds and other UK animals into 3 categories:',
+                                          ),
                                           RichText(
                                             text: const TextSpan(
                                               text: 'Green: ',
                                               style: TextStyle(
-                                                  color: Colors.green,
-                                                  fontWeight: FontWeight.bold),
+                                                color: Colors.green,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                               children: [
                                                 TextSpan(
                                                   text:
@@ -224,7 +248,7 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                                )
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -244,7 +268,7 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                                )
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -252,8 +276,9 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                             text: const TextSpan(
                                               text: 'Red: ',
                                               style: TextStyle(
-                                                  color: Colors.red,
-                                                  fontWeight: FontWeight.bold),
+                                                color: Colors.red,
+                                                fontWeight: FontWeight.bold,
+                                              ),
                                               children: [
                                                 TextSpan(
                                                   text:
@@ -263,7 +288,7 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                                     fontWeight:
                                                         FontWeight.normal,
                                                   ),
-                                                )
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -272,9 +297,9 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                               text:
                                                   'This is reviewed every five years and the last review showed that  ',
                                               style: TextStyle(
-                                                  color: Colors.black,
-                                                  fontWeight:
-                                                      FontWeight.normal),
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.normal,
+                                              ),
                                               children: [
                                                 TextSpan(
                                                   text:
@@ -303,7 +328,7 @@ class _BirdFactPageState extends State<BirdFactPage> {
                                 );
                               },
                             ),
-                          )
+                          ),
                         ],
                       ),
                       Text(widget.bird!.description!),
@@ -313,14 +338,11 @@ class _BirdFactPageState extends State<BirdFactPage> {
               ],
             ),
             IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.white,
-              ),
+              icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
               onPressed: () {
                 Navigator.pop(context);
               },
-            )
+            ),
           ],
         ),
       ),

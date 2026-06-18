@@ -8,7 +8,7 @@ import '../../../settings.dart';
 class FlipCardWidget extends StatefulWidget {
   final DYK? dyk;
 
-  const FlipCardWidget({Key? key, this.dyk}) : super(key: key);
+  const FlipCardWidget({super.key, this.dyk});
 
   @override
   _FlipCardWidgetState createState() => _FlipCardWidgetState();
@@ -26,9 +26,7 @@ class _FlipCardWidgetState extends State<FlipCardWidget>
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
-    _animation = Tween<double>(end: 1, begin: 0).animate(
-      _animationController,
-    )
+    _animation = Tween<double>(end: 1, begin: 0).animate(_animationController)
       ..addListener(() {
         setState(() {});
       })
@@ -46,19 +44,14 @@ class _FlipCardWidgetState extends State<FlipCardWidget>
       height: MediaQuery.of(context).size.width / 2,
       child: (_animation.value < 0.5)
           ? ClipRRect(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(20),
-              ),
+              borderRadius: const BorderRadius.all(Radius.circular(20)),
               child: Row(
                 children: [
                   Flexible(
                     child: SizedBox(
                       width: double.infinity,
                       height: double.infinity,
-                      child: Image.asset(
-                        widget.dyk!.image!,
-                        fit: BoxFit.cover,
-                      ),
+                      child: Image.asset(widget.dyk!.image!, fit: BoxFit.cover),
                     ),
                   ),
                   Flexible(
@@ -70,7 +63,7 @@ class _FlipCardWidgetState extends State<FlipCardWidget>
                       child: Center(
                         child: Text(
                           widget.dyk!.question!,
-                          style: Theme.of(context).textTheme.headline1,
+                          style: Theme.of(context).textTheme.displayLarge,
                         ),
                       ),
                     ),
@@ -83,9 +76,7 @@ class _FlipCardWidgetState extends State<FlipCardWidget>
               height: double.infinity,
               decoration: BoxDecoration(
                 color: Colors.green[50],
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(20),
-                ),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
               ),
               child: Center(
                 child: Padding(
@@ -117,9 +108,10 @@ class _FlipCardWidgetState extends State<FlipCardWidget>
         }
       },
       child: Transform(
-          transform: Matrix4.identity()..rotateY(pi * _animation.value),
-          alignment: FractionalOffset.center,
-          child: _widget()),
+        transform: Matrix4.identity()..rotateY(pi * _animation.value),
+        alignment: FractionalOffset.center,
+        child: _widget(),
+      ),
     );
   }
 

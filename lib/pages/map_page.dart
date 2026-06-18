@@ -2,37 +2,35 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
 import 'package:flutter_map_marker_cluster/flutter_map_marker_cluster.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:redland_green_bird_survey/pages/leave_app_dialog.dart';
 
+import '../config/app_secrets.dart';
 import '../models/bird_box.dart';
-<<<<<<< HEAD
+import '../widgets/current_location_layer.dart';
 import 'bird_box_page/bird_box_page.dart';
-=======
-import 'bird_box_page.dart';
->>>>>>> f7145220ac30b24f80f91788e75572acd6fb1111
 
 bool mapSatellite = false;
 
 class MapPage extends StatefulWidget {
   final int? birdBox;
 
-  const MapPage({Key? key, this.birdBox}) : super(key: key);
+  const MapPage({super.key, this.birdBox});
   @override
   _MapPageState createState() => _MapPageState();
 }
 
 class _MapPageState extends State<MapPage> {
   final List<Marker> _markers = [];
-  MapController mapController = MapController();
+  final MapController mapController = MapController();
   late LatLngBounds _bounds;
-  bool permissionGranted = false;
   final PopupController _popupController = PopupController();
 
-  _fetchBounds() {
+  void _fetchBounds() {
     _bounds = LatLngBounds.fromPoints(
-        BirdBox.birdBoxesList.map((birdBox) => birdBox.location).toList());
+      BirdBox.birdBoxesList.map((birdBox) => birdBox.location).toList(),
+    );
   }
 
   @override
@@ -41,12 +39,12 @@ class _MapPageState extends State<MapPage> {
 
     if (widget.birdBox != null) {
       int i = widget.birdBox!;
-      final Marker _marker = MapMarker(birdBox: BirdBox.birdBoxesList[i]);
-      _markers.add(_marker);
+      final Marker marker = MapMarker(birdBox: BirdBox.birdBoxesList[i]);
+      _markers.add(marker);
     } else {
       for (int i = 0; i < BirdBox.birdBoxesList.length; i++) {
-        final Marker _marker = MapMarker(birdBox: BirdBox.birdBoxesList[i]);
-        _markers.add(_marker);
+        final Marker marker = MapMarker(birdBox: BirdBox.birdBoxesList[i]);
+        _markers.add(marker);
       }
     }
 
@@ -55,103 +53,114 @@ class _MapPageState extends State<MapPage> {
 
   @override
   Widget build(BuildContext context) {
-    Widget _googleMap() {
-      return FlutterMap(
+    final googleMap = PopupScope(
+      popupController: _popupController,
+      child: FlutterMap(
         mapController: mapController,
         options: MapOptions(
           maxZoom: 18,
-          onTap: (tapPosition, point) => _popupController.hideAllPopups(),
-          bounds: _bounds,
-          boundsOptions: const FitBoundsOptions(
-            padding: EdgeInsets.only(
+          onTap: (_, _) => _popupController.hideAllPopups(),
+          initialCenter: widget.birdBox != null
+              ? BirdBox.birdBoxesList[widget.birdBox!].location
+              : const LatLng(51.474508, -2.608220),
+          initialZoom: 17.0,
+          initialCameraFit: CameraFit.bounds(
+            bounds: _bounds,
+            padding: const EdgeInsets.only(
               top: 38.0,
               left: 20,
               right: 20,
               bottom: 8,
             ),
           ),
-          plugins: [
-            MarkerClusterPlugin(),
-            const LocationMarkerPlugin(),
-          ],
-          center: widget.birdBox != null
-              ? BirdBox.birdBoxesList[widget.birdBox!].location
-              : LatLng(51.474508, -2.608220),
-          zoom: 17.0,
+          cameraConstraint: CameraConstraint.contain(bounds: _bounds),
         ),
-        layers: [
-          if (mapSatellite)
-            TileLayerOptions(
-              urlTemplate:
-                  'https://api.mapbox.com/styles/v1/emilysmithson/ckpwmhnk55h4118ntjfm8rnm3/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiZW1pbHlzbWl0aHNvbiIsImEiOiJja3B3bWNha3owMjNxMm9tY2FvZDc2Z3FuIn0.0nSebTuCenuV6ecgIGiwLg',
-            ),
-          if (!mapSatellite)
-            TileLayerOptions(
-                urlTemplate:
-                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                subdomains: ['a', 'b', 'c']),
-          MarkerLayerOptions(markers: _markers),
-          LocationMarkerLayerOptions(),
-          MarkerClusterLayerOptions(
-            maxClusterRadius: 0,
-            markers: _markers,
-            popupOptions: PopupOptions(
-              popupController: _popupController,
-              popupBuilder: (BuildContext context, Marker marker) {
-                return PopUp(marker: marker as MapMarker?);
+        children: [
+          TileLayer(
+            urlTemplate: mapSatellite
+                ? 'https://api.mapbox.com/styles/v1/emilysmithson/ckpwmhnk55h4118ntjfm8rnm3/tiles/256/{z}/{x}/{y}@2x?access_token=$mapboxAccessToken'
+                : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            subdomains: mapSatellite ? const [] : const ['a', 'b', 'c'],
+          ),
+          const CurrentLocationLayer(),
+          MarkerClusterLayerWidget(
+            options: MarkerClusterLayerOptions(
+              maxClusterRadius: 0,
+              markers: _markers,
+              popupOptions: PopupOptions(
+                popupController: _popupController,
+                popupBuilder: (BuildContext context, Marker marker) {
+                  return PopUp(marker: marker as MapMarker);
+                },
+              ),
+              builder: (context, markers) {
+                return FloatingActionButton(
+                  heroTag: null,
+                  onPressed: null,
+                  child: Text(markers.length.toString()),
+                );
               },
             ),
-            builder: (context, markers) {
-              return FloatingActionButton(
-                heroTag: null,
-                child: Text(markers.length.toString()),
-                onPressed: null,
-              );
-            },
+          ),
+          RichAttributionWidget(
+            attributions: [
+              // Suggested attribution for the OpenStreetMap public tile server
+              TextSourceAttribution(
+                'OpenStreetMap contributors',
+                onTap: () => showLeaveAppDialogAndLaunchUrl(
+                  context,
+                  'https://openstreetmap.org/copyright',
+                ),
+              ),
+            ],
           ),
         ],
-      );
-    }
+      ),
+    );
 
     return Scaffold(
-        floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.green[100],
-          onPressed: () {
-            setState(() {
-              mapSatellite = !mapSatellite;
-            });
-          },
-          child: Icon(mapSatellite ? Icons.map_outlined : Icons.satellite,
-              color: Colors.black),
+      floatingActionButtonLocation: FloatingActionButtonLocation.startDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.green[100],
+        onPressed: () {
+          setState(() {
+            mapSatellite = !mapSatellite;
+          });
+        },
+        child: Icon(
+          mapSatellite ? Icons.map_outlined : Icons.satellite,
+          color: Colors.black,
         ),
-        appBar: AppBar(
-          backgroundColor: Colors.green[100]!.withOpacity(0.6),
-          title: const Text('Map'),
-        ),
-        extendBodyBehindAppBar: Platform.isIOS,
-        body: _googleMap());
+      ),
+      appBar: AppBar(
+        backgroundColor: Colors.green[100]!.withValues(alpha: 0.6),
+        title: const Text('Map'),
+      ),
+      extendBodyBehindAppBar: Platform.isIOS,
+      body: googleMap,
+    );
   }
 }
 
 class MapMarker extends Marker {
-  BirdBox birdBox;
-  MapMarker({
-    required this.birdBox,
-  }) : super(
-          anchorPos: AnchorPos.align(AnchorAlign.top),
-          point: birdBox.location,
-          builder: (BuildContext ctx) => Icon(
-            Icons.location_pin,
-            color: mapSatellite ? Colors.green : Colors.black,
-          ),
-        );
+  final BirdBox birdBox;
+  MapMarker({required this.birdBox})
+    : super(
+        alignment: Alignment.topCenter,
+        width: 40,
+        height: 40,
+        point: birdBox.location,
+        child: Icon(
+          Icons.location_pin,
+          color: mapSatellite ? Colors.green : Colors.black,
+        ),
+      );
 }
 
 class PopUp extends StatefulWidget {
-  final MapMarker? marker;
+  final MapMarker marker;
 
-  const PopUp({Key? key, this.marker}) : super(key: key);
+  const PopUp({super.key, required this.marker});
   @override
   _PopUpState createState() => _PopUpState();
 }
@@ -164,9 +173,7 @@ class _PopUpState extends State<PopUp> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => BirdBoxPage(
-              birdBox: widget.marker!.birdBox,
-            ),
+            builder: (context) => BirdBoxPage(birdBox: widget.marker.birdBox),
           ),
         );
       },
@@ -180,11 +187,13 @@ class _PopUpState extends State<PopUp> {
           padding: const EdgeInsets.all(6.0),
           child: ListTile(
             leading: Hero(
-                tag: 'starling',
-                child: ClipOval(
-                    child: Image.asset(widget.marker!.birdBox.boxType!.image))),
-            title: Text('Bird Box ${widget.marker!.birdBox.id}'),
-            subtitle: Text(widget.marker!.birdBox.locationDescription!),
+              tag: 'starling',
+              child: ClipOval(
+                child: Image.asset(widget.marker.birdBox.boxType.image),
+              ),
+            ),
+            title: Text('Bird Box ${widget.marker.birdBox.id}'),
+            subtitle: Text(widget.marker.birdBox.locationDescription),
           ),
         ),
       ),

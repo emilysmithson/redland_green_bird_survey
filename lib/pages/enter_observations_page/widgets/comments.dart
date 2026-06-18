@@ -5,7 +5,8 @@ Widget comments({Function? onChanged, String? comment}) {
     child: Column(
       children: [
         const Text(
-            'Please note your comment will not be visible to the public.'),
+          'Please note your comment will not be visible to the public.',
+        ),
         SizedBox(
           height: 200,
           child: Container(
@@ -18,7 +19,7 @@ Widget comments({Function? onChanged, String? comment}) {
                   color: Colors.grey,
                   offset: Offset(5.0, 5.0),
                   blurRadius: 5.0,
-                )
+                ),
               ],
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
@@ -32,8 +33,12 @@ Widget comments({Function? onChanged, String? comment}) {
                   enabledBorder: InputBorder.none,
                   errorBorder: InputBorder.none,
                   disabledBorder: InputBorder.none,
-                  contentPadding:
-                      EdgeInsets.only(left: 15, bottom: 11, top: 11, right: 15),
+                  contentPadding: EdgeInsets.only(
+                    left: 15,
+                    bottom: 11,
+                    top: 11,
+                    right: 15,
+                  ),
                   hintText: "Enter your comments here (optional).",
                 ),
                 keyboardType: TextInputType.multiline,

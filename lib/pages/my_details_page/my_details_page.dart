@@ -9,7 +9,7 @@ import 'widgets/register_content.dart';
 import 'widgets/unauthenticated_content.dart';
 
 class MyDetailsPage extends StatefulWidget {
-  const MyDetailsPage({Key? key}) : super(key: key);
+  const MyDetailsPage({super.key});
 
   @override
   _MyDetailsPageState createState() => _MyDetailsPageState();
@@ -28,33 +28,33 @@ class _MyDetailsPageState extends State<MyDetailsPage> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: controller.content,
-        builder: (context, MyDetailsView content, child) {
-          late Widget currentWidget;
-          switch (content) {
-            case MyDetailsView.authenticated:
-              currentWidget = AuthenticatedContent(controller: controller);
-              break;
-            case MyDetailsView.unauthenticated:
-              currentWidget = UnauthenticatedContent(controller: controller);
-              break;
-            case MyDetailsView.login:
-              currentWidget = LoginContent(controller: controller);
-              break;
-            case MyDetailsView.register:
-              currentWidget = RegisterContent(controller: controller);
-              break;
-            case MyDetailsView.awaitingVerification:
-              currentWidget =
-                  AwaitingVerificationContent(controller: controller);
-              break;
-          }
-          return PageTemplate(
-            title: 'My Details',
-            image: 'assets/coaltit1.png',
-            widgetList: [currentWidget],
-            heroTag: 'my_details',
-          );
-        });
+      valueListenable: controller.content,
+      builder: (context, MyDetailsView content, child) {
+        late Widget currentWidget;
+        switch (content) {
+          case MyDetailsView.authenticated:
+            currentWidget = AuthenticatedContent(controller: controller);
+            break;
+          case MyDetailsView.unauthenticated:
+            currentWidget = UnauthenticatedContent(controller: controller);
+            break;
+          case MyDetailsView.login:
+            currentWidget = LoginContent(controller: controller);
+            break;
+          case MyDetailsView.register:
+            currentWidget = RegisterContent(controller: controller);
+            break;
+          case MyDetailsView.awaitingVerification:
+            currentWidget = AwaitingVerificationContent(controller: controller);
+            break;
+        }
+        return PageTemplate(
+          title: 'My Details',
+          image: 'assets/coaltit1.png',
+          widgetList: [currentWidget],
+          heroTag: 'my_details',
+        );
+      },
+    );
   }
 }

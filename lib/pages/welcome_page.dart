@@ -6,7 +6,7 @@ import 'enter_observations_page/enter_observations_page.dart';
 import 'map_page.dart';
 
 class WelcomePage extends StatefulWidget {
-  const WelcomePage({Key? key}) : super(key: key);
+  const WelcomePage({super.key});
 
   @override
   _WelcomePageState createState() => _WelcomePageState();
@@ -15,17 +15,20 @@ class WelcomePage extends StatefulWidget {
 class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _widgetList = [
+    final List<Widget> widgetList = [
       Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            Text('Welcome to the Redland Green Bird Box Survey',
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline1),
+            Text(
+              'Welcome to the Redland Green Bird Box Survey',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.displayLarge,
+            ),
             const Text(
-                '\nIn 2020, Redland Green Community Group erected 16 nest boxes in trees around the green.'
-                '\n\nThis app is designed to use community power to help monitor these bird boxes.\n'),
+              '\nIn 2020, Redland Green Community Group erected 16 nest boxes in trees around the green.'
+              '\n\nThis app is designed to use community power to help monitor these bird boxes.\n',
+            ),
             Container(
               padding: const EdgeInsets.all(8),
               margin: const EdgeInsets.all(8),
@@ -36,26 +39,30 @@ class _WelcomePageState extends State<WelcomePage> {
                   const Center(
                     child: Text(
                       'Helping out is as easy as 1 2 3\n',
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const MapPage()));
-                    },
-                    child: const Text(
-                      '1. Find a bird Box',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
+                        fontSize: 18,
                       ),
                     ),
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const MapPage()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const MapPage()),
+                      );
+                    },
+                    child: const Text(
+                      '1. Find a bird Box',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const MapPage()),
+                      );
                     },
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,12 +79,11 @@ class _WelcomePageState extends State<WelcomePage> {
                   const SizedBox(height: 8),
                   const Text(
                     '2. Observe',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                   const Text(
-                      'Build your observation record from the activity options provided.\n'),
+                    'Build your observation record from the activity options provided.\n',
+                  ),
                   const SizedBox(height: 8),
                   GestureDetector(
                     onTap: () {
@@ -90,39 +96,37 @@ class _WelcomePageState extends State<WelcomePage> {
                     },
                     child: const Text(
                       '3. Enter your observation into the app.',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   ),
                   GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => const EnterObservationsPage(),
-                          ),
-                        );
-                      },
-                      child: Row(
-                        children: const [
-                          Expanded(
-                            child: Text('It is quick and easy'),
-                          ),
-                          Icon(Icons.navigate_next),
-                        ],
-                      )),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const EnterObservationsPage(),
+                        ),
+                      );
+                    },
+                    child: Row(
+                      children: const [
+                        Expanded(child: Text('It is quick and easy')),
+                        Icon(Icons.navigate_next),
+                      ],
+                    ),
+                  ),
                   const SizedBox(height: 8),
                 ],
               ),
             ),
             const SizedBox(height: 12),
             const Text(
-                'There has been a substantial decline in birds (both population numbers and ranges) in the British Isles '
-                'since the end of the second world war, a decline which is still continuing in many species. '
-                '\n\nInstalling bird boxes is one way to help cavity-nesting species: nest boxes provide substitutes '
-                'for natural nesting sites and can offer protection from predators. '
-                'We have chosen nest boxes which have a long life and are resistant to damage by predators.\n\n'),
+              'There has been a substantial decline in birds (both population numbers and ranges) in the British Isles '
+              'since the end of the second world war, a decline which is still continuing in many species. '
+              '\n\nInstalling bird boxes is one way to help cavity-nesting species: nest boxes provide substitutes '
+              'for natural nesting sites and can offer protection from predators. '
+              'We have chosen nest boxes which have a long life and are resistant to damage by predators.\n\n',
+            ),
             const SizedBox(height: 20),
           ],
         ),
@@ -132,7 +136,7 @@ class _WelcomePageState extends State<WelcomePage> {
       title: 'Information',
       image: 'assets/bluetit5.png',
       heroTag: 'welcome',
-      widgetList: _widgetList,
+      widgetList: widgetList,
     );
   }
 }

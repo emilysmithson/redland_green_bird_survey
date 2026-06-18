@@ -7,7 +7,7 @@ import '../../settings.dart';
 class BirdBoxTypePage extends StatelessWidget {
   final BoxType? boxType;
 
-  const BirdBoxTypePage({Key? key, this.boxType}) : super(key: key);
+  const BirdBoxTypePage({super.key, this.boxType});
   @override
   Widget build(BuildContext context) {
     return PageTemplate(

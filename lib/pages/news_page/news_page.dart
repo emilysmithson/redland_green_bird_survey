@@ -5,7 +5,7 @@ import '../../widgets/page_template.dart';
 import 'widgets/news_widget.dart';
 
 class NewsPage extends StatefulWidget {
-  const NewsPage({Key? key}) : super(key: key);
+  const NewsPage({super.key});
 
   @override
   _NewsPageState createState() => _NewsPageState();
@@ -18,8 +18,9 @@ class _NewsPageState extends State<NewsPage> {
       title: 'Latest News',
       image: 'assets/longtailedtit2.png',
       heroTag: 'latestNews',
-      widgetList:
-          News.newsList.map((News news) => NewsWidget(news: news)).toList(),
+      widgetList: News.newsList.value
+          .map((News news) => NewsWidget(news: news))
+          .toList(),
     );
   }
 }
