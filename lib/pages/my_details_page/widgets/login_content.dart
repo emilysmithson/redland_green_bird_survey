@@ -38,13 +38,7 @@ class _LoginContentState extends State<LoginContent> {
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(5.0, 5.0),
-                      blurRadius: 5.0,
-                    ),
-                  ],
+
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Padding(
@@ -67,13 +61,7 @@ class _LoginContentState extends State<LoginContent> {
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(5.0, 5.0),
-                      blurRadius: 5.0,
-                    ),
-                  ],
+
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Padding(
@@ -93,7 +81,7 @@ class _LoginContentState extends State<LoginContent> {
                 alignment: Alignment.centerRight,
                 child: SizedBox(
                   width: 200,
-                  child: ElevatedButton(
+                  child: FilledButton(
                     onPressed: () async {
                       setState(() {
                         isLoading = true;
@@ -201,7 +189,7 @@ class _LoginContentState extends State<LoginContent> {
                               "\n\nBe sure to check your junk mail.",
                             ),
                             actions: [
-                              ElevatedButton(
+                              FilledButton(
                                 onPressed: () {
                                   Navigator.pop(context);
                                 },

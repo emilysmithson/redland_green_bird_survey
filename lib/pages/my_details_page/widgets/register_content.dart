@@ -52,7 +52,7 @@ class _RegisterContentState extends State<RegisterContent> {
                   "The email address ${emailController.value.text} has already been registered. Please log in.",
                 ),
                 actions: [
-                  ElevatedButton(
+                  FilledButton(
                     onPressed: () {
                       widget.controller.content.value = MyDetailsView.login;
                       Navigator.pop(context);
@@ -90,7 +90,7 @@ class _RegisterContentState extends State<RegisterContent> {
                 "You have been sent an email with a verification link. Please click that link to continue.",
               ),
               actions: [
-                ElevatedButton(
+                FilledButton(
                   onPressed: () {
                     createdUser.sendEmailVerification();
                     widget.controller.content.value =
@@ -189,13 +189,7 @@ class _RegisterContentState extends State<RegisterContent> {
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(5.0, 5.0),
-                      blurRadius: 5.0,
-                    ),
-                  ],
+
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Padding(
@@ -230,13 +224,7 @@ class _RegisterContentState extends State<RegisterContent> {
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(5.0, 5.0),
-                      blurRadius: 5.0,
-                    ),
-                  ],
+
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Padding(
@@ -267,13 +255,7 @@ class _RegisterContentState extends State<RegisterContent> {
                 padding: const EdgeInsets.all(8),
                 decoration: const BoxDecoration(
                   color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(5.0, 5.0),
-                      blurRadius: 5.0,
-                    ),
-                  ],
+
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),
                 child: Padding(

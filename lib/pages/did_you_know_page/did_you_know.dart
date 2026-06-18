@@ -53,22 +53,15 @@ class _DidYouKnowPageState extends State<DidYouKnowPage> {
         },
         child: Container(
           padding: const EdgeInsets.all(8),
-          width: 100,
-          height: 70,
+          width: 110,
+          height: 80,
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
             color: Colors.green[50],
             borderRadius: const BorderRadius.all(Radius.circular(20)),
-            boxShadow: [
-              BoxShadow(
-                color: index == selectedIndex ? Colors.green[50]! : Colors.grey,
-                offset: Offset(
-                  index == selectedIndex ? 0 : 5.0,
-                  index == selectedIndex ? 0 : 5.0,
-                ),
-                blurRadius: index == selectedIndex ? 0 : 5.0,
-              ),
-            ],
+            border: Border.all(
+              color: selectedIndex == index ? Colors.green : Colors.transparent,
+            ),
           ),
           child: Center(child: Text(title, textAlign: TextAlign.center)),
         ),

@@ -50,15 +50,6 @@ class _RGListTileState extends State<RGListTile> {
           height: 200,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(20.0)),
-            boxShadow: pressed
-                ? []
-                : [
-                    const BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(5.0, 5.0),
-                      blurRadius: 5.0,
-                    ),
-                  ],
           ),
           child: Row(
             children: [
@@ -93,7 +84,24 @@ class _RGListTileState extends State<RGListTile> {
                   child: Container(
                     height: double.infinity,
                     color: Colors.green[50],
-                    child: widget.widget,
+                    child: LayoutBuilder(
+                      builder: (context, constraints) {
+                        final textStyle = DefaultTextStyle.of(context).style;
+                        final lineHeight =
+                            (textStyle.fontSize ?? 14) *
+                            (textStyle.height ?? 1.2);
+                        final maxLines = (constraints.maxHeight / lineHeight)
+                            .floor()
+                            .clamp(1, 20);
+
+                        return DefaultTextStyle(
+                          style: textStyle,
+                          maxLines: maxLines,
+                          overflow: TextOverflow.ellipsis,
+                          child: ClipRect(child: widget.widget!),
+                        );
+                      },
+                    ),
                   ),
                 ),
               ),

@@ -11,8 +11,6 @@ import '../models/bird_box.dart';
 import '../widgets/current_location_layer.dart';
 import 'bird_box_page/bird_box_page.dart';
 
-bool mapSatellite = false;
-
 class MapPage extends StatefulWidget {
   final int? birdBox;
 
@@ -24,18 +22,38 @@ class MapPage extends StatefulWidget {
 class _MapPageState extends State<MapPage> {
   final List<Marker> _markers = [];
   final MapController mapController = MapController();
-  late LatLngBounds _bounds;
+  late final LatLngBounds _bounds;
+  late final MapOptions _mapOptions;
   final PopupController _popupController = PopupController();
+  bool _mapSatellite = false;
 
-  void _fetchBounds() {
-    _bounds = LatLngBounds.fromPoints(
-      BirdBox.birdBoxesList.map((birdBox) => birdBox.location).toList(),
-    );
+  void _onMapTap(TapPosition position, LatLng point) {
+    _popupController.hideAllPopups();
   }
 
   @override
   void initState() {
-    _fetchBounds();
+    _bounds = LatLngBounds.fromPoints(
+      BirdBox.birdBoxesList.map((birdBox) => birdBox.location).toList(),
+    );
+    _mapOptions = MapOptions(
+      maxZoom: 18,
+      onTap: _onMapTap,
+      initialCenter: widget.birdBox != null
+          ? BirdBox.birdBoxesList[widget.birdBox!].location
+          : const LatLng(51.474508, -2.608220),
+      initialZoom: 17.0,
+      initialCameraFit: CameraFit.insideBounds(
+        bounds: _bounds,
+        padding: const EdgeInsets.only(
+          top: 38.0,
+          left: 20,
+          right: 20,
+          bottom: 8,
+        ),
+      ),
+      cameraConstraint: CameraConstraint.contain(bounds: _bounds),
+    );
 
     if (widget.birdBox != null) {
       int i = widget.birdBox!;
@@ -57,30 +75,13 @@ class _MapPageState extends State<MapPage> {
       popupController: _popupController,
       child: FlutterMap(
         mapController: mapController,
-        options: MapOptions(
-          maxZoom: 18,
-          onTap: (_, _) => _popupController.hideAllPopups(),
-          initialCenter: widget.birdBox != null
-              ? BirdBox.birdBoxesList[widget.birdBox!].location
-              : const LatLng(51.474508, -2.608220),
-          initialZoom: 17.0,
-          initialCameraFit: CameraFit.bounds(
-            bounds: _bounds,
-            padding: const EdgeInsets.only(
-              top: 38.0,
-              left: 20,
-              right: 20,
-              bottom: 8,
-            ),
-          ),
-          cameraConstraint: CameraConstraint.contain(bounds: _bounds),
-        ),
+        options: _mapOptions,
         children: [
           TileLayer(
-            urlTemplate: mapSatellite
+            urlTemplate: _mapSatellite
                 ? 'https://api.mapbox.com/styles/v1/emilysmithson/ckpwmhnk55h4118ntjfm8rnm3/tiles/256/{z}/{x}/{y}@2x?access_token=$mapboxAccessToken'
-                : 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-            subdomains: mapSatellite ? const [] : const ['a', 'b', 'c'],
+                : 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            userAgentPackageName: 'redland_green_bird_survey',
           ),
           const CurrentLocationLayer(),
           MarkerClusterLayerWidget(
@@ -124,11 +125,11 @@ class _MapPageState extends State<MapPage> {
         backgroundColor: Colors.green[100],
         onPressed: () {
           setState(() {
-            mapSatellite = !mapSatellite;
+            _mapSatellite = !_mapSatellite;
           });
         },
         child: Icon(
-          mapSatellite ? Icons.map_outlined : Icons.satellite,
+          _mapSatellite ? Icons.map_outlined : Icons.satellite,
           color: Colors.black,
         ),
       ),
@@ -150,10 +151,7 @@ class MapMarker extends Marker {
         width: 40,
         height: 40,
         point: birdBox.location,
-        child: Icon(
-          Icons.location_pin,
-          color: mapSatellite ? Colors.green : Colors.black,
-        ),
+        child: Icon(Icons.location_pin, color: Colors.black),
       );
 }
 

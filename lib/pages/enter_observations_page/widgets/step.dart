@@ -79,8 +79,8 @@ class _CustomStepperState extends State<CustomStepper> {
               children: [
                 Visibility(
                   visible: !step.isFirst!,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
+                  child: FilledButton(
+                    style: FilledButton.styleFrom(
                       backgroundColor: Colors.green[100],
                     ),
                     onPressed: () {
@@ -100,8 +100,8 @@ class _CustomStepperState extends State<CustomStepper> {
                   ),
                 ),
                 const SizedBox(width: 20),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
+                FilledButton(
+                  style: FilledButton.styleFrom(
                     backgroundColor: Colors.green[100],
                   ),
                   onPressed: () {

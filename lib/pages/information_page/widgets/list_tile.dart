@@ -16,13 +16,6 @@ Widget listTile({
       height: 200,
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(20.0)),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey,
-            offset: Offset(5.0, 5.0),
-            blurRadius: 5.0,
-          ),
-        ],
       ),
       child: Row(
         children: [
@@ -58,8 +51,18 @@ Widget listTile({
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: content,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: content,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

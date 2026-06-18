@@ -29,15 +29,7 @@ Widget selectBird(int bird, Function onSelect) {
                 width: bird == birdList[index].id ? 3.0 : 0.0,
                 color: Colors.blueAccent,
               ),
-              boxShadow: bird == birdList[index].id
-                  ? []
-                  : [
-                      const BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(3.0, 3.0),
-                        blurRadius: 3.0,
-                      ),
-                    ],
+
               borderRadius: const BorderRadius.all(Radius.circular(10)),
               image: DecorationImage(
                 colorFilter: birdList[index].images!.isEmpty

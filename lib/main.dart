@@ -1,5 +1,4 @@
 import 'package:firebase_core/firebase_core.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -38,7 +37,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        elevatedButtonTheme: ElevatedButtonThemeData(
+        filledButtonTheme: FilledButtonThemeData(
           style: ButtonStyle(
             shape: WidgetStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(18.0)),
@@ -49,6 +48,7 @@ class _MyAppState extends State<MyApp> {
         ),
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle.light,
+          foregroundColor: Colors.white,
         ),
         textTheme: const TextTheme(
           displayLarge: TextStyle(

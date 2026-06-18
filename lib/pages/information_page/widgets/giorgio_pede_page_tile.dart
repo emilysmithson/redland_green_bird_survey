@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WelcomePageTile extends StatelessWidget {
-  const WelcomePageTile({super.key});
+class GiorgioPedePageTile extends StatelessWidget {
+  const GiorgioPedePageTile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,14 +11,14 @@ class WelcomePageTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Welcome!\n',
+            'Giorgio Pede\n',
             style: Theme.of(context).textTheme.displayLarge,
             textAlign: TextAlign.center,
           ),
           const Expanded(
             child: Text(
-              'In 2020, Redland Green Community Group installed nest boxes in trees around the green. There are now 20 boxes to monitor.'
-              '\n\nThis app has been created to track the boxes and their inhabitants.'
+              'The beautiful photos on this app are all thanks to local photographer Giorgio Pede.'
+              '\n\nMany of them were taken on Redland Green.'
               '\n\nTap for more information.',
               overflow: TextOverflow.ellipsis,
             ),

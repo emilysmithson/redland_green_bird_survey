@@ -52,15 +52,7 @@ class _SelectBirdBoxNoState extends State<SelectBirdBoxNo> {
                           borderRadius: const BorderRadius.all(
                             Radius.circular(60),
                           ),
-                          boxShadow: widget.birdBox != birdBox.id
-                              ? [
-                                  const BoxShadow(
-                                    color: Colors.grey,
-                                    offset: Offset(3.0, 3.0),
-                                    blurRadius: 3.0,
-                                  ),
-                                ]
-                              : [],
+
                           border: Border.all(
                             width: widget.birdBox == birdBox.id ? 2.0 : 0.0,
                             color: widget.birdBox == birdBox.id
@@ -91,13 +83,7 @@ class _SelectBirdBoxNoState extends State<SelectBirdBoxNo> {
                     decoration: BoxDecoration(
                       color: Colors.green[100],
                       borderRadius: const BorderRadius.all(Radius.circular(20)),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.grey,
-                          offset: Offset(3.0, 3.0),
-                          blurRadius: 3.0,
-                        ),
-                      ],
+
                       border: Border.all(width: 0.0, color: Colors.blueAccent),
                     ),
                     child: GestureDetector(

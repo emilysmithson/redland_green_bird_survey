@@ -25,13 +25,6 @@ Widget observationDetails({
         decoration: BoxDecoration(
           color: Colors.green[50],
           borderRadius: BorderRadius.circular(10),
-          boxShadow: const [
-            BoxShadow(
-              color: Colors.grey,
-              offset: Offset(5.0, 5.0),
-              blurRadius: 5.0,
-            ),
-          ],
         ),
         padding: showUser
             ? const EdgeInsets.all(8)
@@ -159,7 +152,7 @@ Widget observationDetails({
                       'Are you sure you want to delete this observation?',
                     ),
                     actions: [
-                      ElevatedButton(
+                      FilledButton(
                         onPressed: () async {
                           final NavigatorState navigator = Navigator.of(
                             context,
@@ -175,7 +168,7 @@ Widget observationDetails({
                         },
                         child: const Text('Delete'),
                       ),
-                      ElevatedButton(
+                      FilledButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },

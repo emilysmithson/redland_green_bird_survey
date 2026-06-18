@@ -53,15 +53,6 @@ class _RGGridTileState extends State<RGGridTile> {
                 fit: BoxFit.cover,
                 image: AssetImage(widget.imageAsset!),
               ),
-              boxShadow: pressed
-                  ? []
-                  : const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(5.0, 5.0),
-                        blurRadius: 5.0,
-                      ),
-                    ],
             ),
             child: Align(
               alignment: Alignment.bottomCenter,

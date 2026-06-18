@@ -94,7 +94,7 @@ class _QuizPageState extends State<QuizPage> {
               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             showNextButton
-                ? ElevatedButton(
+                ? FilledButton(
                     child: const Text('Next'),
                     onPressed: () {
                       setState(() {
@@ -141,7 +141,7 @@ class _QuizPageState extends State<QuizPage> {
         ),
       ),
       Center(
-        child: ElevatedButton(
+        child: FilledButton(
           child: const Text('Start'),
           onPressed: () {
             setState(() {
@@ -194,13 +194,13 @@ class _QuizPageState extends State<QuizPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            ElevatedButton(
+            FilledButton(
               child: const Text('Home'),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-            ElevatedButton(
+            FilledButton(
               child: const Text('Try again'),
               onPressed: () {
                 setState(() {

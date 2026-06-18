@@ -18,15 +18,7 @@ Widget observationDescription({
           decoration: BoxDecoration(
             color: Colors.green[50],
             borderRadius: const BorderRadius.all(Radius.circular(20)),
-            boxShadow: sightingType == sightingType.id
-                ? []
-                : [
-                    const BoxShadow(
-                      color: Colors.grey,
-                      offset: Offset(3.0, 3.0),
-                      blurRadius: 3.0,
-                    ),
-                  ],
+
             border: Border.all(
               width: sightingType == sightingType.id ? 2.0 : 0.0,
               color: Colors.blueAccent,

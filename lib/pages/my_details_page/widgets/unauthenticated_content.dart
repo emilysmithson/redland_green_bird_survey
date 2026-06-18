@@ -33,13 +33,13 @@ class _UnauthenticatedContentState extends State<UnauthenticatedContent> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            ElevatedButton(
+            FilledButton(
               onPressed: () {
                 widget.controller.content.value = MyDetailsView.login;
               },
               child: const Text('Log in'),
             ),
-            ElevatedButton(
+            FilledButton(
               onPressed: () {
                 widget.controller.content.value = MyDetailsView.register;
               },

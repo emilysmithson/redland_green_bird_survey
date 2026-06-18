@@ -48,7 +48,7 @@ class _AwaitingVerificationContentState
                 padding: EdgeInsets.all(24.0),
                 child: CircularProgressIndicator(strokeWidth: 6),
               ),
-              ElevatedButton(
+              FilledButton(
                 onPressed: () {
                   widget.controller.content.value =
                       MyDetailsView.unauthenticated;

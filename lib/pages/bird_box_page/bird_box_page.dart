@@ -80,8 +80,9 @@ class _BirdBoxPageState extends State<BirdBoxPage> {
                               children: [
                                 TileLayer(
                                   urlTemplate:
-                                      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-                                  subdomains: const ['a', 'b', 'c'],
+                                      'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+                                  userAgentPackageName:
+                                      'redland_green_bird_survey',
                                 ),
                                 MarkerLayer(
                                   markers: [

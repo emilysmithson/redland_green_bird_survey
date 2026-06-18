@@ -14,13 +14,7 @@ Widget comments({Function? onChanged, String? comment}) {
             padding: const EdgeInsets.all(8),
             decoration: const BoxDecoration(
               color: Colors.white,
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  offset: Offset(5.0, 5.0),
-                  blurRadius: 5.0,
-                ),
-              ],
+
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: Padding(

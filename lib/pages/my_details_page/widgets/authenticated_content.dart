@@ -57,7 +57,7 @@ class _AuthenticatedContentState extends State<AuthenticatedContent> {
                         ),
                       ),
                       actions: [
-                        ElevatedButton(
+                        FilledButton(
                           onPressed: () async {
                             await FirebaseAuth.instance.currentUser!
                                 .updateDisplayName(controller.value.text);
@@ -102,7 +102,7 @@ class _AuthenticatedContentState extends State<AuthenticatedContent> {
                     padding: EdgeInsets.all(8.0),
                     child: Text('You have no observations yet.'),
                   ),
-                  ElevatedButton(
+                  FilledButton(
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,

@@ -28,13 +28,12 @@ class _LatestObservationsPageState extends State<LatestObservationsPage> {
         sightingList = Sighting.observations;
         break;
       case 2:
-        sightingList = Sighting.observations
-            .where(
-              (sighting) =>
-                  sighting.userEmail ==
-                  FirebaseAuth.instance.currentUser!.email,
-            )
-            .toList();
+        final userEmail = FirebaseAuth.instance.currentUser?.email;
+        if (userEmail != null) {
+          sightingList = Sighting.observations
+              .where((sighting) => sighting.userEmail == userEmail)
+              .toList();
+        }
         break;
     }
     final widgetList = [
@@ -118,9 +117,13 @@ class _LatestObservationsPageState extends State<LatestObservationsPage> {
             ),
           ),
           sightingList.isEmpty
-              ? const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text('You have no observations yet.'),
+              ? Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    _sortList == 2 && FirebaseAuth.instance.currentUser == null
+                        ? 'Please log in to view your observations.'
+                        : 'You have no observations yet.',
+                  ),
                 )
               : Column(
                   children: sightingList.map((sighting) {

@@ -29,13 +29,13 @@ class Version {
                 "\n\nPlease download the latest version from the app store.",
               ),
               actions: [
-                ElevatedButton(
+                FilledButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   child: const Text("No thanks"),
                 ),
-                ElevatedButton(
+                FilledButton(
                   onPressed: () async {
                     final Uri url = Uri.parse(
                       Platform.isAndroid

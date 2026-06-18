@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WelcomePageTile extends StatelessWidget {
-  const WelcomePageTile({super.key});
+class EmilySmithsonPageTile extends StatelessWidget {
+  const EmilySmithsonPageTile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,14 +11,13 @@ class WelcomePageTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'Welcome!\n',
+            'Emily Smithson\n',
             style: Theme.of(context).textTheme.displayLarge,
             textAlign: TextAlign.center,
           ),
           const Expanded(
             child: Text(
-              'In 2020, Redland Green Community Group installed nest boxes in trees around the green. There are now 20 boxes to monitor.'
-              '\n\nThis app has been created to track the boxes and their inhabitants.'
+              'This app was created by Emily Smithson, a Bristol app developer.'
               '\n\nTap for more information.',
               overflow: TextOverflow.ellipsis,
             ),

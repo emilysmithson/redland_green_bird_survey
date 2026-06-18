@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../widgets/page_template.dart';
+import '../home_page/widgets/rg_list_tile.dart';
+import 'emily_smithson_page.dart';
+import 'giorgio_pede_page.dart';
+import 'widgets/emily_smithson_page_tile.dart';
+import 'widgets/giorgio_pede_page_tile.dart';
 import 'widgets/list_tile.dart';
 
 class InformationPage extends StatefulWidget {
@@ -25,42 +30,19 @@ class _InformationPageState extends State<InformationPage> {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
-            listTile(
-              onTap: () async {
-                await openExternalUrl(
-                  'https://www.instagram.com/giorgio_pede_photography/',
-                );
-              },
-              imageLeft: false,
+            const RGListTile(
+              navigateTo: GiorgioPedePage(),
               imageAsset: 'assets/jay1.png',
-              content: [
-                const Text(
-                  'The beautiful photos on this app are all thanks to local photographer Giorgio Pede.'
-                  '\n\nMany of them were taken on Redland Green.'
-                  '\n\nTap here to view all his photos on Instagram.',
-                ),
-                const Icon(Icons.photo_camera_rounded),
-              ],
+              heroTag: 'giorgio_pede',
+              imageLeft: false,
+              widget: GiorgioPedePageTile(),
             ),
-            listTile(
-              onTap: () {
-                final Uri emailLaunchUri = Uri(
-                  scheme: 'mailto',
-                  path: 'emily_foulkes@hotmail.com',
-                  queryParameters: {'subject': 'Redland Green Bird Survey'},
-                );
-
-                launchUrl(emailLaunchUri);
-              },
-              imageLeft: true,
+            const RGListTile(
+              navigateTo: EmilySmithsonPage(),
               imageAsset: 'assets/magpie.png',
-              content: [
-                const Text('This app was created by Emily Smithson'),
-                const Text(
-                  'If you have any comments or suggestions, please e-mail me at emily_foulkes@hotmail.com',
-                ),
-                const Icon(Icons.mail_outline_rounded),
-              ],
+              heroTag: 'emily_smithson',
+              imageLeft: true,
+              widget: EmilySmithsonPageTile(),
             ),
             listTile(
               onTap: () async {
